@@ -611,11 +611,13 @@ body {
 /* Hero Visual Showcase */
 .hero-visual-card {
   position: relative;
-  background: linear-gradient(145deg, #FFFFFF 0%, #FFFDF8 100%);
-  border: 1px solid var(--border-card);
+  background: 
+    linear-gradient(145deg, #FFFFFF 0%, #FFFDF8 100%) padding-box,
+    linear-gradient(to right, #72D296 0%, #72D296 50%, #56CCF2 50%, #56CCF2 100%) border-box;
+  border: 3.5px solid transparent;
   border-radius: var(--radius-lg);
   padding: 24px;
-  box-shadow: 0 16px 40px rgba(0, 136, 204, 0.1);
+  box-shadow: -6px 16px 36px rgba(114, 210, 150, 0.16), 6px 16px 36px rgba(86, 204, 242, 0.16);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1316,15 +1318,35 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+.course-card-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-card);
+  background: #F8F9FA;
+}
+
+.course-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-card-img {
+  transform: scale(1.04);
 }
 
 .course-meta {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
   margin-bottom: 18px;
 }
 
@@ -1337,10 +1359,35 @@ body {
   border-radius: var(--radius-full);
 }
 
+.badge-price {
+  background: rgba(46, 125, 50, 0.12);
+  color: #1B5E20;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-capacity {
+  background: rgba(2, 136, 209, 0.1);
+  color: #0277BD;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .badge-track {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--text-muted);
+  margin-left: auto;
 }
 
 .course-title {
@@ -1359,6 +1406,10 @@ body {
 }
 
 .open-details-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   background: none;
   border: 1px solid var(--color-blue);
   color: var(--color-blue);
@@ -1376,6 +1427,28 @@ body {
   background: var(--color-blue);
   border-color: var(--color-blue);
   color: #FFFFFF;
+}
+
+.course-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border-light);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.course-card-footer .open-details-btn {
+  align-self: auto;
+}
+
+.price-pill {
+  background: rgba(46, 125, 50, 0.12) !important;
+  color: #1B5E20 !important;
+  border-color: rgba(46, 125, 50, 0.3) !important;
+  font-weight: 800 !important;
 }
 
 /* =========================================================================
@@ -2020,9 +2093,9 @@ body {
 .mentor-competencies,
 .mentor-tags-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
-  justify-content: center;
 }
 
 .comp-pill,
@@ -2356,6 +2429,46 @@ body {
 .social-icon-btn:hover {
   background: var(--color-orange);
   color: #FFFFFF;
+}
+
+.social-links-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  color: var(--text-dark);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.social-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.social-link-btn.fb-btn:hover {
+  background: #1877F2;
+  color: #FFFFFF;
+  border-color: #1877F2;
+}
+
+.social-link-btn.yt-btn:hover {
+  background: #FF0000;
+  color: #FFFFFF;
+  border-color: #FF0000;
 }
 
 /* Footer */

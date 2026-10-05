@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.onerror = function(msg, url, line, col, err) {
+      document.title = "JS_ERROR: " + msg;
+      const d = document.createElement("div");
+      d.id = "js-error-box";
+      d.style.color = "red";
+      d.style.fontWeight = "bold";
+      d.style.padding = "20px";
+      d.style.background = "#ffebee";
+      d.textContent = "ERROR: " + msg + " at " + line + ":" + col + (err ? "\n" + err.stack : "");
+      document.body ? document.body.prepend(d) : document.documentElement.appendChild(d);
+    };
+  </script>
+  <title>ფუსფუსა ჩატბოტი — ტესტების ანგარიში (66 ტესტი)</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 24px;
+      background: #F8F9FA;
+      color: #212529;
+    }
+    h1 {
+      color: #1A365D;
+      margin-bottom: 8px;
+    }
+    .summary-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+    .metric-val {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+    .metric-val.pass { color: #2E7D32; }
+    .metric-val.fail { color: #C62828; }
+    .metric-lbl {
+      font-size: 0.85rem;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #FFFFFF;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    th, td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid #EDF2F7;
+      font-size: 0.88rem;
+    }
+    th {
+      background: #EDF2F7;
+      color: #4A5568;
+      font-weight: 700;
+    }
+    tr:hover {
+      background: #F7FAFC;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+    .badge.pass {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+    .badge.fail {
+      background: #FFEBEE;
+      color: #C62828;
+    }
+    .category-badge {
+      background: #E2E8F0;
+      color: #4A5568;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+    .missing-info {
+      color: #C62828;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧪 სახელოსნო „ფუსფუსა“ — ჩატბოტის სატესტო ანგარიში</h1>
+  <p style="color:#718096; margin-top:0;">ავტომატური ტესტირება: 66 სატესტო სცენარი ქართულ ენაზე (ბრუნვები, შეცდომები, ლათინური, კონტექსტი, ასაკი, OutOfScope)</p>
+
+  <div class="summary-card" id="summary-card">
+    <div class="metric">
+      <span class="metric-val" id="total-val">-</span>
+      <span class="metric-lbl">სულ ტესტი</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val pass" id="passed-val">-</span>
+      <span class="metric-lbl">წარმატებული</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val fail" id="failed-val">-</span>
+      <span class="metric-lbl">ჩავარდნილი</span>
+    </div>
+    <div class="metric">
+      <span class="metric-val pass" id="rate-val">-</span>
+      <span class="metric-lbl">წარმატების მაჩვენებელი</span>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50px;">ID</th>
+        <th style="width: 160px;">კატეგორია</th>
+        <th>შეკითხვა</th>
+        <th>მოსალოდნელი თემა</th>
+        <th style="width: 90px;">სტატუსი</th>
+        <th>პასუხის ფრაგმენტი</th>
+      </tr>
+    </thead>
+    <tbody id="test-tbody">
+      <!-- Injected by JS -->
+    </tbody>
+  </table>
+
+  <!-- Load Chatbot Core and Tests -->
+  <script src="app.js"></script>
+  <script src="chatbot-tests.js"></script>
+  <script>
+    (() => {
+      const suite = runChatbotTests();
+      
+      document.getElementById("total-val").textContent = suite.total;
+      document.getElementById("passed-val").textContent = suite.passed;
+      document.getElementById("failed-val").textContent = suite.failed;
+      document.getElementById("rate-val").textContent = suite.rate;
+
+      document.title = suite.failed === 0 
+        ? "ALL_TESTS_PASSED (" + suite.passed + "/" + suite.total + ")" 
+        : "TESTS_FAILED (" + suite.failed + " failures)";
+
+      const tbody = document.getElementById("test-tbody");
+      suite.results.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${r.id}</strong></td>
+          <td><span class="category-badge">${r.category}</span></td>
+          <td><code>${r.query}</code></td>
+          <td>${r.expectedTopic}</td>
+          <td><span class="badge ${r.status === 'PASS' ? 'pass' : 'fail'}">${r.status}</span></td>
+          <td>
+            ${r.responseSnippet}
+            ${r.missing.length ? `<div class="missing-info">აკლია: ${r.missing.join(', ')}</div>` : ''}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      console.log("TEST_REPORT:", JSON.stringify({
+        total: suite.total,
+        passed: suite.passed,
+        failed: suite.failed,
+        rate: suite.rate
+      }));
+    })();
+  </script>
+</body>
+</html>

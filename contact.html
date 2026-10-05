@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>კონტაქტი & დაჯავშნა | სახელოსნო „ფუსფუსა“</title>
-  <meta name="description" content="დარეგისტრირდით სახელოსნო ფუსფუსაში: რუსთავი, რუსთაველის ქუჩა. ტელეფონი: +995 577 101 301.">
+  <meta name="description" content="დარეგისტრირდით სახელოსნო ფუსფუსაში: რუსთავი, რუსთაველის ქუჩა. ტელეფონი: +995 514 01 88 33.">
   
   <link rel="stylesheet" href="styles.css?v=2.4">
   <link rel="icon" type="image/png" href="logo.png">
@@ -97,31 +97,53 @@
               <div class="form-group" style="margin-top: 16px;">
                 <label class="form-label">სასურველი მიმართულება ან პროექტი *</label>
                 <div class="dir-pills-wrap">
-                  <div class="dir-pill active" data-value="robotics-club" id="pill-robotics">🤖 რობოტიკისა & კოდირების წრე</div>
-                  <div class="dir-pill" data-value="bees-project" id="pill-bees">🐝 პროექტი „ფუსფუსა ფუტკრები“</div>
-                  <div class="dir-pill" data-value="ice-world-project" id="pill-ice-world">❄️ პროექტი „ყინულოვანი სამყარო“</div>
-                  <div class="dir-pill" data-value="workshop-card" id="pill-workshop-card">🎄 ვორქშოფი: საახალწლო ბარათი</div>
-                  <div class="dir-pill" data-value="workshop-penguin" id="pill-workshop-penguin">🐧 ვორქშოფი: მოფუსფუსე პინგვინი</div>
+                  <!-- დროებით ამოღებულია: <div class="dir-pill" data-value="robotics-club" id="pill-robotics">🤖 რობოტიკისა & კოდირების წრე (120 ლარი)</div> -->
+                  <div class="dir-pill active" data-value="bees-project" id="pill-bees">🐝 პროექტი „ფუსფუსა ფუტკრები“ (200 ლარი)</div>
+                  <div class="dir-pill" data-value="ice-world-project" id="pill-ice-world">❄️ პროექტი „ყინულოვანი სამყარო“ (200 ლარი)</div>
+                  <div class="dir-pill" data-value="workshop-card" id="pill-workshop-card">🎄 ვორქშოფი: საახალწლო ბარათი (50 ლარი)</div>
+                  <div class="dir-pill" data-value="workshop-penguin" id="pill-workshop-penguin">🐧 ვორქშოფი: მოფუსფუსე პინგვინი (50 ლარი)</div>
+                  <div class="dir-pill" data-value="workshop-clay-lamp" id="pill-workshop-clay">🕯️ ვორქშოფი: თიხის ლამპიონი (50 ლარი)</div>
                 </div>
-                <input type="hidden" id="chosen-direction" value="robotics-club">
+                <input type="hidden" id="chosen-direction" value="bees-project">
+
+                <!-- დროებით ამოღებულია: Robotics Club Info Panel
+                <div id="robotics-subpanel" class="workshop-subpanel" style="display: none; border-color: var(--color-blue); background: #F0F7FF;">
+                  <div style="font-size: 0.88rem; color: var(--color-blue-dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <span>🤖 <strong>რობოტიკის წრის საფასური:</strong> 120 ლარი / თვეში</span>
+                    <span>💻 კვირაში 2 შეხვედრა • Micro:bit & Arduino</span>
+                  </div>
+                </div>
+                -->
+
+                <!-- 1-Month Project Info Panel -->
+                <div id="month-project-subpanel" class="workshop-subpanel" style="border-color: #2E7D32; background: #F1F8E9;">
+                  <div style="font-size: 0.88rem; color: #1B5E20; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <span>📅 <strong>ერთ თვიანი პროგრამის საფასური:</strong> 200 ლარი</span>
+                    <span>✨ სრული თეორიული & პრაქტიკული კურსი</span>
+                  </div>
+                </div>
 
                 <!-- Workshop-Only Group Choice: Appears ONLY when a 1-day workshop is selected -->
                 <div id="workshop-subpanel" class="workshop-subpanel" style="display: none;">
+                  <div class="workshop-pricing-banner" style="background: rgba(46, 125, 50, 0.08); border: 1px solid rgba(46, 125, 50, 0.25); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; font-size: 0.88rem; color: #1B5E20; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                    <span>⚡ <strong>ვორქშოფის საფასური:</strong> 50 ლარი (1 ბავშვი)</span>
+                    <span>👥 <strong>მაქსიმალური რაოდენობა:</strong> 15 ბავშვი</span>
+                  </div>
                   <div class="workshop-mode-pills">
                     <button type="button" class="workshop-mode-pill active" id="mode-single-btn" data-mode="single">
                       👤 ერთი ბავშვის რეგისტრაცია
                     </button>
                     <button type="button" class="workshop-mode-pill" id="mode-group-btn" data-mode="group">
-                      👥 დაარეგისტრირეთ ჯგუფი
+                      👥 დაარეგისტრირეთ ჯგუფი (მაქს. 15)
                     </button>
                   </div>
                   <input type="hidden" id="workshop-mode" value="single">
 
                   <div id="workshop-group-count-wrap" class="workshop-group-count-wrap" style="display: none;">
-                    <label for="group-count" class="form-label" style="margin-bottom: 0;">რამდენი ბავშვი იქნება ჯგუფში? *</label>
+                    <label for="group-count" class="form-label" style="margin-bottom: 0;">რამდენი ბავშვი იქნება ჯგუფში? (მაქსიმუმ 15) *</label>
                     <div class="group-stepper-wrap">
                       <button type="button" class="stepper-btn" id="stepper-minus" aria-label="შემცირება">−</button>
-                      <input type="number" id="group-count" class="stepper-input" min="2" max="50" value="10">
+                      <input type="number" id="group-count" class="stepper-input" min="2" max="15" value="10">
                       <button type="button" class="stepper-btn" id="stepper-plus" aria-label="გაზრდა">+</button>
                       <span class="stepper-unit">ბავშვი</span>
                     </div>
@@ -151,8 +173,29 @@
               <div class="contact-row-icon">📍</div>
               <div class="contact-row-info">
                 <h5>მისამართი</h5>
-                <p>რუსთავი, რუსთაველის ქუჩა</p>
+                <p>
+                  <a href="https://maps.app.goo.gl/sRnCucsniBFkQdWZ7" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-decoration-color: var(--color-green); text-underline-offset: 3px;">
+                    რუსთავი, რუსთაველის ქუჩა
+                  </a>
+                </p>
+                <a href="https://maps.app.goo.gl/sRnCucsniBFkQdWZ7" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem; font-weight: 700; color: var(--color-blue); margin-top: 4px; text-decoration: none;">
+                  🗺️ Google Maps-ზე გახსნა →
+                </a>
               </div>
+            </div>
+
+            <!-- Google Maps Interactive Embed -->
+            <div class="contact-map-container" style="margin: 8px 0 16px 0; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-card); box-shadow: 0 4px 14px rgba(0,0,0,0.06); height: 210px;">
+              <iframe
+                title="სახელოსნო ფუსფუსას ლოკაცია"
+                src="https://maps.google.com/maps?q=41.552370,45.016346&amp;hl=ka&amp;z=16&amp;output=embed"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
 
             <div class="contact-row">
@@ -167,7 +210,7 @@
               <div class="contact-row-icon">📞</div>
               <div class="contact-row-info">
                 <h5>ტელეფონი</h5>
-                <p><a href="tel:+995577101301" style="color: inherit; text-decoration: none;">+995 577 101 301</a></p>
+                <p><a href="tel:+995514018833" style="color: inherit; text-decoration: none;">+995 514 01 88 33</a></p>
               </div>
             </div>
 
@@ -179,12 +222,17 @@
               </div>
             </div>
 
-            <div style="margin-top: 10px;">
+            <div style="margin-top: 14px;">
               <h5 style="font-size: 0.88rem; font-weight: 800; color: var(--text-dark); margin-bottom: 10px;">გამოგვყევით სოციალურ ქსელებში:</h5>
               <div class="social-links-row">
-                <a href="#" class="social-link-btn" aria-label="Facebook">Facebook</a>
-                <a href="#" class="social-link-btn" aria-label="Instagram">Instagram</a>
-                <a href="#" class="social-link-btn" aria-label="YouTube">YouTube</a>
+                <a href="https://www.facebook.com/profile.php?id=61589642798492" target="_blank" rel="noopener noreferrer" class="social-link-btn fb-btn" aria-label="Facebook">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  Facebook
+                </a>
+                <a href="https://www.youtube.com/@fusfusa" target="_blank" rel="noopener noreferrer" class="social-link-btn yt-btn" aria-label="YouTube">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  YouTube
+                </a>
               </div>
             </div>
           </div>
@@ -240,9 +288,10 @@
 
       <div class="footer-links-col">
         <h5>კონტაქტი</h5>
-        <p>📍 რუსთავი, რუსთაველის ქუჩა</p>
-        <p>📞 <a href="tel:+995577101301">+995 577 101 301</a></p>
+        <p>📍 <a href="https://maps.app.goo.gl/sRnCucsniBFkQdWZ7" target="_blank" rel="noopener noreferrer">რუსთავი, რუსთაველის ქუჩა</a></p>
+        <p>📞 <a href="tel:+995514018833">+995 514 01 88 33</a></p>
         <p>✉️ <a href="mailto:info@fusfusa.ge">info@fusfusa.ge</a></p>
+        <p>🌐 <a href="https://www.facebook.com/profile.php?id=61589642798492" target="_blank" rel="noopener noreferrer">Facebook გვერდი</a></p>
       </div>
     </div>
 

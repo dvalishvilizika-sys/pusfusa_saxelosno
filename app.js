@@ -52,8 +52,6 @@ function initNavigation() {
 
 /**
  * Realistic Curriculum Data & Syllabus Modal
-/**
- * Realistic Curriculum Data & Syllabus Modal
  * 3 Primary Formats: ერთ თვიანი პროექტები, ერთ დღიანი ვორქშოფები, რობოტიკის წრე
  */
 const syllabusData = {
@@ -76,17 +74,17 @@ const syllabusData = {
 
   // 2. ერთ თვიანი ინტეგრირებული პროექტი: ფუსფუსა ფუტკრები (მთავარი ნიმუში)
   "project-bees": {
-    title: "ინტეგრირებული პროექტი „ფუსფუსა ფუტკრები“ 🐝",
+    title: "პროექტი „ფუსფუსა ფუტკრები“ 🐝",
     age: "8–12 წელი",
     pillar: "📅 ერთ თვიანი პროექტი (დედამიწა + ტექნოლოგიები)",
-    schedule: "3 კვირა (6 შეხვედრა • 3-საათიანი მოდელი)",
-    description: "უნიკალური 3-საათიანი ფორმატი: 30 წთ შემეცნება (ფუტკრების ანატომია, ეკოსისტემები და მცენარეების დარგვა), 1.5 სთ სახელოსნო (ხის ნამდვილი სკა, თიხის ყვავილები, ნატიფი მოტორიკა) და 1 სთ რობოტიკა (Micro:bit ტემპერატურის კონტროლი და 2D ანიმაცია). საზეიმო ფინალი მშობლებთან ერთად!",
+    schedule: "4 კვირა (8 შეხვედრა • 3-საათიანი მოდელი)",
+    description: "უნიკალური 4-კვირიანი (8 შეხვედრა • 3-საათიანი) მოდელი: 30 წთ შემეცნება (ფუტკრები და ეკოსისტემები), 1.5 სთ სახელოსნო (ხის ნამდვილი სკა & თიხა) და 1 სთ რობოტიკა (Micro:bit ტემპერატურის კონტროლი და 2D ანიმაცია). საზეიმო ფინალი მშობლებთან ერთად!",
     modules: [
       "1. 30 წთ შემეცნება („დედამიწა“): ფუტკრების ანატომია, როლი ბუნებაში, სისტემური აზროვნება და მცენარეების დარგვა",
       "2. 1.5 სთ სახელოსნო („დედამიწა“): ხის დამუშავება, ნამდვილი სკის მაკეტის აწყობა და თიხის ყვავილების ძერწვა",
       "3. 1 სთ რობოტიკა & ანიმაცია („ტექნოლოგიები“): micro:bit სენსორით ტემპერატურისა და ტენიანობის გაზომვა",
       "4. 2D ციფრული ანიმაცია: ბავშვების მიერ დახატული ფუტკრებისა და გარემოს გაცოცხლება ეკრანზე",
-      "5. საზეიმო ფინალი: საერთო დიდი მაკეტის პრეზენტაცია მშობლებთან ერთად, კოდების ჩვენება დიდ ეკრანზე და სერტიფიკატები!"
+      "5. საზეიმო ფინალი (მე-8 შეხვედრა): საერთო დიდი მაკეტის პრეზენტაცია მშობლებთან ერთად, კოდების ჩვენება დიდ ეკრანზე და სერტიფიკატები!"
     ],
     skills: ["ეკო-ტექნოლოგიური სინთეზი", "სისტემური აზროვნება", "ხის ოსტატობა & თიხა", "micro:bit კოდირება", "2D ანიმაცია", "გუნდური მუშაობა"]
   },
@@ -203,12 +201,13 @@ function initCurriculum() {
     });
   });
 
-  // Open Modal Details
-  document.querySelectorAll(".open-details-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const courseKey = btn.dataset.course;
-      const data = syllabusData[courseKey];
-      if (!data || !modal) return;
+  // Open Modal Details (if modal element exists)
+  if (modal) {
+    document.querySelectorAll(".open-details-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const courseKey = btn.dataset.course;
+        const data = syllabusData[courseKey];
+        if (!data) return;
 
       document.getElementById("modal-title").textContent = data.title;
       document.getElementById("modal-age").textContent = `ასაკი: ${data.age}`;
@@ -261,6 +260,7 @@ function initCurriculum() {
       document.body.style.overflow = "hidden";
     });
   });
+  }
 
   // Close Modal
   const closeModal = () => {
@@ -284,28 +284,28 @@ function initCurriculum() {
 const projectsData = {
   "fussusa-bees": {
     id: "fussusa-bees",
-    title: "ინტეგრირებული პროექტი: „ფუსფუსა ფუტკრები“",
-    badge: "🐝 პირველი ინტეგრირებული პროექტი",
+    title: "პროექტი: „ფუსფუსა ფუტკრები“",
+    badge: "🐝 პირველი პროექტი",
     meta: {
-      duration: "3 კვირა",
-      meetings: "6 შეხვედრა (კვირაში 2 დღე)",
+      duration: "4 კვირა",
+      meetings: "8 შეხვედრა (კვირაში 2 დღე)",
       dailyHours: "დღეში 3 საათი",
-      age: "6–12 წელი"
+      age: "8–12 წელი"
     },
     tagline: "ფუტკრების ჯადოსნური სამყარო, მცენარეების დარგვა, მაკეტების შექმნა, micro:bit-ით ნიადაგის ტენიანობის კონტროლი და საკუთარი ანიმაციის გაცოცხლება!",
     weeks: [
       {
         weekNumber: 1,
-        title: "კვირა 1: გაცნობა, თესვა & micro:bit-ის პირველი ნაბიჯები",
+        title: "კვირა 1: გაცნობა, ეკოსისტემები, თესვა & micro:bit-ის პირველი ნაბიჯები",
         days: [
           {
-            dayName: "დღე 1",
+            dayName: "დღე 1 (შეხვედრა 1)",
             hours: [
               {
-                badge: "საათი 1: შემეცნება 🌿",
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
                 badgeClass: "hour-badge-1",
                 topics: [
-                  "ფუტკრების ცხოვრების შესახებ საუბარი: კითხვა/პასუხი",
+                  "ფუტკრების ცხოვრების შესახებ საუბარი: კითხვა/პასუხი და ანატომიის გაცნობა",
                   "არსებული ცოდნის გაერთიანება და გაანალიზება",
                   "გაჩენილ, უპასუხო საკითხებზე ინფორმაციის მოძიება — შერეულ გუნდებად დაყოფა",
                   "ვსწავლობთ ინფორმაციის მოძიებას, დამუშავებასა და შენახვას",
@@ -313,49 +313,51 @@ const projectsData = {
                 ]
               },
               {
-                badge: "საათი 2: სახელოსნო 🎨",
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
                 badgeClass: "hour-badge-2",
                 topics: [
-                  "თემა: ქოთანი",
-                  "ქოთნის მოხატვა და დეკორირება",
-                  "ნიადაგის მომზადება და თესლის დარგვა"
+                  "თემა: ქოთანი და ეკო-გარემო",
+                  "თიხის ქოთნის მოხატვა და დეკორირება",
+                  "ნიადაგის მომზადება და თაფლოვანი მცენარეების თესლის დარგვა"
                 ]
               },
               {
-                badge: "საათი 3: რობოტიკა 💻",
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
                 badgeClass: "hour-badge-3",
                 topics: [
                   "თემა: მიკრობიტი (micro:bit) — პირველი ნაცნობობა მიკროკონტროლერთან",
+                  "LED ეკრანის მართვა და სიმბოლოების გამოტანა",
                   "შეჯამება: მიღებული ინფორმაციის ცოდნად გარდაქმნა სახალისო ბლიც-კითხვებით"
                 ]
               }
             ]
           },
           {
-            dayName: "დღე 2",
+            dayName: "დღე 2 (შეხვედრა 2)",
             hours: [
               {
-                badge: "საათი 1: შემეცნება 🌿",
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
                 badgeClass: "hour-badge-1",
                 topics: [
                   "micro:bit-ის გამოყენებით ვზომავთ დარგული მცენარეების ნიადაგის ტენიანობას და ვრწყავთ ქოთნებს",
                   "ცოდნის გახსენება: სახალისო ბლიც-კითხვები",
-                  "ფუტკრების გამოძერწვა და ყვავილების გამოჭრა"
+                  "ფუტკრების როლი ყვავილების დამტვერვასა და ბუნების ციკლებში"
                 ]
               },
               {
-                badge: "საათი 2: სახელოსნო 🎨",
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
                 badgeClass: "hour-badge-2",
                 topics: [
-                  "სახელოსნოში შესაქმნელი მაკეტების შერჩევა: ა) გარეული ფუტკრების სკა, ბ) შინაური ფუტკრების სკა, ყვავილები",
-                  "სახლში წასაღები მნიშვნელოვანი მესიჯი: რატომ არის მნიშვნელოვანი საცხოვრებელი გარემო ფუტკრებისთვის (მწერებისთვის); რა შეგვიძლია გავაკეთოთ გარემოზე ზრუნვისთვის"
+                  "თიხასთან მუშაობა: ფუტკრების გამოძერწვა და ფერადი ყვავილების შექმნა",
+                  "ნატიფი მოტორიკა და ფორმების დამუშავება"
                 ]
               },
               {
-                badge: "საათი 3: რობოტიკა 💻",
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
                 badgeClass: "hour-badge-3",
                 topics: [
-                  "micro:bit-ის სქემები და პირველი კოდირება",
+                  "micro:bit-ის სქემები და პირველი კოდირება MakeCode-ში",
+                  "ღილაკებზე (A და B) ინტერაქტიული რეაქციების დაპროგრამება",
                   "დღის შეჯამება და მიღებული შედეგების განხილვა"
                 ]
               }
@@ -365,63 +367,65 @@ const projectsData = {
       },
       {
         weekNumber: 2,
-        title: "კვირა 2: მაკეტების გაერთიანება, ამბის შექმნა & ციფრული ანიმაცია",
+        title: "კვირა 2: ხის ნამდვილი სკა, ბიომიმიკრია & ტემპერატურის კონტროლი",
         days: [
           {
-            dayName: "დღე 1",
+            dayName: "დღე 1 (შეხვედრა 3)",
             hours: [
               {
-                badge: "საათი 1: შემეცნება 🌿",
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
                 badgeClass: "hour-badge-1",
                 topics: [
                   "micro:bit-ის გამოყენებით ვზომავთ დარგული მცენარეების ნიადაგის ტენიანობას, ვრწყავთ ქოთნებს",
-                  "ცოდნის გახსენება: სახალისო ბლიც-კითხვები",
-                  "მაკეტების დეტალების დასრულება"
+                  "საცხოვრებელი გარემოს კვლევა: გარეული ფუტკრების ბუდეები vs შინაური ფუტკრების სკა",
+                  "სახლში წასაღები მნიშვნელოვანი მესიჯი: გარემოზე ზრუნვა და მწერების დაცვა"
                 ]
               },
               {
-                badge: "საათი 2: სახელოსნო 🎨",
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
                 badgeClass: "hour-badge-2",
                 topics: [
-                  "ყველა მოსწავლის ნამუშევრის 1 დიდ ერთობლივ მაკეტად გაერთიანება",
-                  "ამბის გამოგონება, პერსონაჟების ხასიათის შექმნა და ჩაწერა"
+                  "ხის დამუშავება: ნამდვილი ხის სკის მაკეტის აწყობა და დეტალების შეერთება",
+                  "ხის ზუმფარით დამუშავება და უსაფრთხო იარაღების გამოყენება"
                 ]
               },
               {
-                badge: "საათი 3: რობოტიკა 💻",
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
                 badgeClass: "hour-badge-3",
                 topics: [
-                  "micro:bit-ის ფუნქციების გაფართოება",
-                  "სცენარის ციფრული გადახედვა და როლების დაგეგმვა"
+                  "micro:bit-ის ჩაშენებული ტემპერატურის სენსორის გაცნობა",
+                  "„ჭკვიანი სკის“ ტემპერატურის კონტროლის ლოგიკა და ალგორითმი",
+                  "დღის შეჯამება და კითხვა-პასუხი"
                 ]
               }
             ]
           },
           {
-            dayName: "დღე 2",
+            dayName: "დღე 2 (შეხვედრა 4)",
             hours: [
               {
-                badge: "საათი 1: შემეცნება 🌿",
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
                 badgeClass: "hour-badge-1",
                 topics: [
-                  "micro:bit-ის გამოყენებით ვზომავთ დარგული მცენარეების ნიადაგის ტენიანობას, ვრწყავთ ქოთნებს",
-                  "სცენარის გახსენება და საბოლოო დახვეწა",
-                  "ფოტოების გადაღების ლოკაციებისა და რაკურსების შერჩევა"
+                  "micro:bit-ით ნიადაგის ტენიანობის შემოწმება & მცენარეების ზრდაზე დაკვირვება",
+                  "ბიომიმიკრია: ფიჭის ექვსკუთხა გეომეტრია და საინჟინრო სიმტკიცე ბუნებაში"
                 ]
               },
               {
-                badge: "საათი 2: სახელოსნო 🎨",
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
                 badgeClass: "hour-badge-2",
                 topics: [
-                  "შექმნილი მაკეტისა და პერსონაჟების პროფესიული ფოტოების გადაღება"
+                  "სკის შიდა ფიჭების მაკეტების შექმნა და დეკორირება",
+                  "თიხის ფუტკრებისა და მცენარეების ინტეგრირება ხის სკასთან"
                 ]
               },
               {
-                badge: "საათი 3: რობოტიკა 💻",
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
                 badgeClass: "hour-badge-3",
                 topics: [
-                  "micro:bit და ტექნოლოგიური ხელსაწყოები",
-                  "ფოტოების გაცოცხლება — ციფრული ანიმაციის ტექნოლოგიები"
+                  "ტემპერატურისა და ტენიანობის მაჩვენებლების ვიზუალიზაცია micro:bit-ზე",
+                  "პირობითი ოპერატორები (If/Else) — გაფრთხილების სიგნალი მეფუტკრისთვის",
+                  "კოდების შემოწმება და ტესტირება რეალურ მაკეტზე"
                 ]
               }
             ]
@@ -430,13 +434,81 @@ const projectsData = {
       },
       {
         weekNumber: 3,
-        title: "კვირა 3: კოდები დიდ ეკრანზე & საზეიმო ფინალი მშობლებთან ერთად",
+        title: "კვირა 3: მაკეტების გაერთიანება, ამბის შექმნა & 2D ციფრული ანიმაცია",
         days: [
           {
-            dayName: "დღე 1",
+            dayName: "დღე 1 (შეხვედრა 5)",
             hours: [
               {
-                badge: "საათი 1: შემეცნება 🌿",
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
+                badgeClass: "hour-badge-1",
+                topics: [
+                  "micro:bit-ის გამოყენებით ვზომავთ დარგული მცენარეების ნიადაგის ტენიანობას, ვრწყავთ ქოთნებს",
+                  "ეკო-ამბის მოფიქრება: პერსონაჟების ხასიათების შექმნა და სიუჟეტის ჩაწერა",
+                  "როლების განაწილება გუნდებში"
+                ]
+              },
+              {
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
+                badgeClass: "hour-badge-2",
+                topics: [
+                  "ყველა მოსწავლის ნამუშევრის 1 დიდ ერთობლივ მაკეტად გაერთიანება",
+                  "საფოსტო ყუთის, ყვავილების ველისა და სკების სრული ეკოსისტემის განლაგება",
+                  "მაკეტების დეტალების საბოლოო დახვეწა"
+                ]
+              },
+              {
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
+                badgeClass: "hour-badge-3",
+                topics: [
+                  "2D ციფრული ანიმაციის საფუძვლები",
+                  "დახატული და გამოძერწილი პერსონაჟების ციფრული გაცნობა",
+                  "პირველი ანიმაციური მოძრაობების დაპროგრამება"
+                ]
+              }
+            ]
+          },
+          {
+            dayName: "დღე 2 (შეხვედრა 6)",
+            hours: [
+              {
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
+                badgeClass: "hour-badge-1",
+                topics: [
+                  "micro:bit-ის გამოყენებით ვზომავთ დარგული მცენარეების ნიადაგის ტენიანობას, ვრწყავთ ქოთნებს",
+                  "სცენარის გახსენება, დიალოგების დახვეწა და ფოტოგადაღების ლოკაციების შერჩევა"
+                ]
+              },
+              {
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
+                badgeClass: "hour-badge-2",
+                topics: [
+                  "შექმნილი მაკეტისა და პერსონაჟების პროფესიული ფოტოების გადაღება",
+                  "სხვადასხვა რაკურსისა და განათების შერჩევა ანიმაციისთვის"
+                ]
+              },
+              {
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
+                badgeClass: "hour-badge-3",
+                topics: [
+                  "ფოტოების ციფრული გაცოცხლება — 2D ანიმაციის ტექნოლოგიები",
+                  "ფუტკრის ფრენისა და ყვავილების მოძრაობის სინთეზი",
+                  "დღის შეჯამება და მიღწეული შედეგების გადახედვა"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        weekNumber: 4,
+        title: "კვირა 4: კოდები დიდ ეკრანზე & საზეიმო ფინალი მშობლებთან ერთად",
+        days: [
+          {
+            dayName: "დღე 1 (შეხვედრა 7)",
+            hours: [
+              {
+                badge: "საათი 1 (30 წთ): შემეცნება 🌿",
                 badgeClass: "hour-badge-1",
                 topics: [
                   "micro:bit-ით დარგული მცენარეების ნიადაგის ტენიანობის გაზომვა, ქოთნების მორწყვა",
@@ -444,25 +516,26 @@ const projectsData = {
                 ]
               },
               {
-                badge: "საათი 2: სახელოსნო 🎨",
+                badge: "საათი 2 (1.5 სთ): სახელოსნო 🎨",
                 badgeClass: "hour-badge-2",
                 topics: [
                   "პროექტის შეჯამება: საპრეზენტაციო სცენარის დამუშავება",
-                  "საპრეზენტაციო როლების გადანაწილება ბავშვებს შორის"
+                  "საპრეზენტაციო როლების გადანაწილება ბავშვებს შორის (მთხრობელი, ინჟინერი, მეფუტკრე)"
                 ]
               },
               {
-                badge: "საათი 3: რობოტიკა 💻",
+                badge: "საათი 3 (1 სთ): რობოტიკა 💻",
                 badgeClass: "hour-badge-3",
                 topics: [
                   "რობოტიკა — მიღწეული შედეგების შეჯამება",
-                  "საპრეზენტაციოდ მომზადება: პლანშეტიდან დიდ ეკრანზე ბავშვების მიერ შექმნილი კოდების გადატანა"
+                  "საპრეზენტაციოდ მომზადება: პლანშეტიდან დიდ ეკრანზე ბავშვების მიერ შექმნილი კოდების გადატანა",
+                  "გენერალური რეპეტიცია და ტექნიკური გამართვა"
                 ]
               }
             ]
           },
           {
-            dayName: "დღე 2: საზეიმო ფინალი & გამოფენა! 🎉",
+            dayName: "დღე 2 (შეხვედრა 8): საზეიმო ფინალი & გამოფენა! 🎉",
             isGrandFinale: true,
             hours: [
               {
@@ -478,8 +551,8 @@ const projectsData = {
                 badgeClass: "hour-badge-event",
                 topics: [
                   "საზეიმო პრეზენტაცია და გამოფენა მშობლებთან ერთად",
-                  "ერთობლივი გრანდიოზული მაკეტის ჩვენება",
-                  "გაცოცხლებული ანიმაციისა და ბავშვების მიერ შექმნილი კოდების ჩვენება დიდ ეკრანზე",
+                  "ერთობლივი გრანდიოზული მაკეტის ჩვენება (ხის სკები, თიხის ყვავილები, მცენარეები)",
+                  "გაცოცხლებული 2D ანიმაციისა და ბავშვების მიერ შექმნილი კოდების ჩვენება დიდ ეკრანზე",
                   "მხიარული შეჯამება, გართობა და სერტიფიკატების გადაცემა!"
                 ]
               }
@@ -922,6 +995,8 @@ function initBookingForm() {
   const chosenDirInput = document.getElementById("chosen-direction");
 
   const workshopSubpanel = document.getElementById("workshop-subpanel");
+  const monthProjectSubpanel = document.getElementById("month-project-subpanel");
+  const roboticsSubpanel = document.getElementById("robotics-subpanel");
   const modeSingleBtn = document.getElementById("mode-single-btn");
   const modeGroupBtn = document.getElementById("mode-group-btn");
   const workshopModeInput = document.getElementById("workshop-mode");
@@ -939,12 +1014,12 @@ function initBookingForm() {
     });
     stepperPlus.addEventListener("click", () => {
       let val = parseInt(groupCountInput.value, 10) || 10;
-      if (val < 50) groupCountInput.value = val + 1;
+      if (val < 15) groupCountInput.value = val + 1;
     });
     groupCountInput.addEventListener("change", () => {
       let val = parseInt(groupCountInput.value, 10) || 10;
       if (val < 2) val = 2;
-      if (val > 50) val = 50;
+      if (val > 15) val = 15;
       groupCountInput.value = val;
     });
   }
@@ -993,10 +1068,24 @@ function initBookingForm() {
 
       if (val.startsWith("workshop")) {
         if (workshopSubpanel) workshopSubpanel.style.display = "block";
+        if (monthProjectSubpanel) monthProjectSubpanel.style.display = "none";
+        if (roboticsSubpanel) roboticsSubpanel.style.display = "none";
         const currentMode = workshopModeInput ? workshopModeInput.value : "single";
         setWorkshopMode(currentMode);
+      } else if (val === "bees-project" || val === "ice-world-project") {
+        if (workshopSubpanel) workshopSubpanel.style.display = "none";
+        if (monthProjectSubpanel) monthProjectSubpanel.style.display = "block";
+        if (roboticsSubpanel) roboticsSubpanel.style.display = "none";
+        setWorkshopMode("single");
+      } else if (val === "robotics-club") {
+        if (workshopSubpanel) workshopSubpanel.style.display = "none";
+        if (monthProjectSubpanel) monthProjectSubpanel.style.display = "none";
+        if (roboticsSubpanel) roboticsSubpanel.style.display = "block";
+        setWorkshopMode("single");
       } else {
         if (workshopSubpanel) workshopSubpanel.style.display = "none";
+        if (monthProjectSubpanel) monthProjectSubpanel.style.display = "none";
+        if (roboticsSubpanel) roboticsSubpanel.style.display = "none";
         setWorkshopMode("single");
       }
     });
@@ -1021,10 +1110,14 @@ function initBookingForm() {
         targetPill = document.querySelector(`.dir-pill[data-value="robotics-club"]`);
       } else if (!targetPill && (selectedParam.includes("bees") || selectedParam === "earth")) {
         targetPill = document.querySelector(`.dir-pill[data-value="bees-project"]`);
+      } else if (!targetPill && (selectedParam.includes("ice") || selectedParam.includes("polar"))) {
+        targetPill = document.querySelector(`.dir-pill[data-value="ice-world-project"]`);
       } else if (!targetPill && selectedParam.includes("card")) {
         targetPill = document.querySelector(`.dir-pill[data-value="workshop-card"]`);
       } else if (!targetPill && (selectedParam.includes("penguin") || selectedParam.includes("pingv") || selectedParam.includes("vibro"))) {
         targetPill = document.querySelector(`.dir-pill[data-value="workshop-penguin"]`);
+      } else if (!targetPill && (selectedParam.includes("clay") || selectedParam.includes("lamp"))) {
+        targetPill = document.querySelector(`.dir-pill[data-value="workshop-clay-lamp"]`);
       } else if (!targetPill) {
         targetPill = document.querySelector(".dir-pill");
       }
@@ -1081,7 +1174,7 @@ function initBookingForm() {
     if (groupCountInput) groupCountInput.value = 10;
     setWorkshopMode("single");
     if (workshopSubpanel) workshopSubpanel.style.display = "none";
-    const defaultPill = document.querySelector('.dir-pill[data-value="robotics-club"]') || dirPills[0];
+    const defaultPill = document.querySelector('.dir-pill[data-value="bees-project"]') || dirPills[0];
     if (defaultPill) defaultPill.click();
   });
 
@@ -1254,13 +1347,14 @@ function initAiChatWindow() {
           ხოლო მე ვარ ბიტი 💻 — გიპასუხებთ რობოტიკაზე, კოდინგზე, AI-ზე, ანიმაციასა და ასაკობრივ ჯგუფებზე! რით შეგვიძლია დაგეხმაროთ?
           
           <div class="ai-quick-prompts" id="ai-quick-prompts">
-            <button class="ai-prompt-btn" data-query="რომელი კურსი შეეფერება ჩემს შვილს?">🎯 რომელი კურსი შეეფერება ჩემს შვილს?</button>
-            <button class="ai-prompt-btn" data-query="მომიყევი პროექტ „ყინულოვან სამყაროზე“">❄️ პროექტი „ყინულოვანი სამყარო“</button>
+            <button class="ai-prompt-btn" data-query="რა ღირს სწავლა და ვორქშოფები?">💰 რა ღირს სწავლა და ვორქშოფები?</button>
+            <button class="ai-prompt-btn" data-query="ვინ არიან სახელოსნოს ხელმძღვანელები?">👩‍🏫 ვინ არიან ხელმძღვანელები?</button>
             <button class="ai-prompt-btn" data-query="მომიყევი პროექტ „ფუსფუსა ფუტკრებზე“">🐝 პროექტი „ფუსფუსა ფუტკრები“</button>
+            <button class="ai-prompt-btn" data-query="მომიყევი პროექტ „ყინულოვან სამყაროზე“">❄️ პროექტი „ყინულოვანი სამყარო“</button>
             <button class="ai-prompt-btn" data-query="რა არის ვორქშოფი „მოფუსფუსე პინგვინი“?">🐧 ვორქშოფი: პინგვინი ყინულზე</button>
-            <button class="ai-prompt-btn" data-query="როგორ დავრეგისტრირდეთ?">📅 როგორ დავრეგისტრირდეთ?</button>
-            <button class="ai-prompt-btn" data-query="რას ისწავლის ბავშვი რობოტიკასა და კოდინგში?">🤖 რას ისწავლის რობოტიკაში?</button>
+            <button class="ai-prompt-btn" data-query="რა არის თიხის მანათობელი ეკო-ლამპიონი?">🕯️ ვორქშოფი: თიხის ლამპიონი</button>
             <button class="ai-prompt-btn" data-query="სად მდებარეობს სახელოსნო და რა არის კონტაქტი?">📍 სად მდებარეობს სახელოსნო?</button>
+            <button class="ai-prompt-btn" data-query="როგორ დავრეგისტრირდეთ?">📅 როგორ დავრეგისტრირდეთ?</button>
           </div>
         </div>
       </div>
@@ -1417,25 +1511,254 @@ function initAiChatWindowDefaultMessages(container) {
  * =========================================================================
  * FUSFUSA AI KNOWLEDGE RETRIEVAL & MOBILIZATION ENGINE (ქართული AI ბირთვი)
  * =========================================================================
- * სრულად აერთიანებს საიტის მთლიან ინფორმაციას ყველა გვერდიდან.
+ * ცენტრალიზებული ფაქტები, ოფლაინ NLU, მორფოლოგიური სტემერი, ლათინური ტრანსლიტერატორი,
+ * Levenshtein fuzzy matching, სესიის მეხსიერება, ასაკობრივი მატრიცა და უსაფრთხოების ფილტრები.
  */
 
-// Georgian text normalizer & stemmer
+// 1. ცენტრალიზებული მონაცემთა საცავი (Single Source of Truth)
+const SITE_FACTS = {
+  name: "სახელოსნო „ფუსფუსა“",
+  slogans: {
+    primary: "ვუფრთხილდებით, ვზრუნავთ, ვქმნით",
+    mission: "გუშინ მოთამაშე — დღეს შემოქმედი"
+  },
+  contacts: {
+    city: "რუსთავი",
+    address: "რუსთავი, რუსთაველის ქუჩა",
+    phone: "+995 514 01 88 33",
+    email: "info@fusfusa.ge",
+    mapsUrl: "https://maps.app.goo.gl/sRnCucsniBFkQdWZ7",
+    facebookUrl: "https://www.facebook.com/profile.php?id=61589642798492",
+    youtubeUrl: "https://www.youtube.com/@fusfusa",
+    hours: "სამშაბათი – კვირა: 10:00 – 19:00 (ორშაბათი: დასვენების დღე)"
+  },
+  pricing: {
+    workshop: 50,
+    monthProject: 200,
+    roboticsClub: 120, // monthly
+    materialsIncluded: true,
+    trialFree: true // პირველი გაცნობითი ვიზიტი უფასოა
+  },
+  ageRange: { min: 6, max: 15 },
+  programs: {
+    "workshop-card": {
+      id: "workshop-card",
+      title: "მანათობელი საახალწლო ბარათი",
+      emoji: "🎄",
+      category: "workshop",
+      categoryName: "ერთდღიანი ვორქშოფი",
+      price: 50,
+      ageMin: 6,
+      ageMax: 14,
+      duration: "1 შეხვედრა • 1.5–2 საათი",
+      description: "იდეალური ვორქშოფი ელექტრონიკის საწყისების გასაცნობად კოდირების გარეშე. ქაღალდის ინჟინერია („დედამიწა“) + სპილენძის ლენტი, 3V ბრტყელი ელემენტი (CR2032) და LED ნათურა შეკრული წრედის (Closed Circuit) პრინციპით („ტექნოლოგიები“). ბარათის დაჭერისას ნახატი ჯადოსნურად ნათდება!",
+      takeHome: "საკუთარი ხელით შექმნილი ინტერაქტიული მანათობელი ბარათი."
+    },
+    "workshop-penguin": {
+      id: "workshop-penguin",
+      title: "მოფუსფუსე პინგვინი ყინულზე",
+      emoji: "🐧",
+      category: "workshop",
+      categoryName: "ერთდღიანი ვორქშოფი",
+      price: 50,
+      ageMin: 7,
+      ageMax: 10,
+      duration: "1 შეხვედრა • 1.5–2 საათი",
+      description: "კინეტიკური ინჟინერიისა და პოლარული ბუნებისმეტყველების სინთეზი! მუყაოს პინგვინისა და ფოლგის ყინულის მოედნის შექმნა („დედამიწა“), 3V ელემენტისა და მინი-ვიბროძრავის (Micro vibration motor) ინტეგრირება („ტექნოლოგიები“). წრედის შეკვრისას ძრავი ვიბრირებს, პინგვინი ყინულზე სრიალებს და ეწყობა მხიარული რბოლა!",
+      takeHome: "საკუთარი რობო-პინგვინი, რომელიც ყინულზე დამოუკიდებლად სრიალებს."
+    },
+    "workshop-clay-lamp": {
+      id: "workshop-clay-lamp",
+      title: "თიხის მანათობელი ეკო-ლამპიონი",
+      emoji: "🕯️",
+      category: "workshop",
+      categoryName: "ერთდღიანი ვორქშოფი",
+      price: 50,
+      ageMin: 6,
+      ageMax: 12,
+      duration: "1 შეხვედრა • 2 საათი",
+      description: "ბუნებრივი თიხის ძერწვა, გუმბათოვანი ფორმის ამოყვანა, ორნამენტული პერფორაცია სინათლის გასასვლელად („დედამიწა“) და უსაფრთხო ავტონომიური LED მანათობელი მოდულის მონტაჟი („ტექნოლოგიები“).",
+      takeHome: "საკუთარი ხელით შექმნილი ულამაზესი მაგიდის ეკო-სანათი."
+    },
+    "bees-project": {
+      id: "bees-project",
+      title: "პროექტი „ფუსფუსა ფუტკრები“",
+      emoji: "🐝",
+      category: "project",
+      categoryName: "1-თვიანი ინტეგრირებული პროექტი",
+      price: 200,
+      ageMin: 8,
+      ageMax: 12,
+      duration: "4 კვირა (8 შეხვედრა • დღეში 3 სთ)",
+      description: "3-საათიანი უნიკალური ინტეგრირებული მოდელი: 30 წთ შემეცნება (ფუტკრის ანატომია, ეკოსისტემები, თესვა), 1.5 სთ სახელოსნო (ხის ნამდვილი სკა, თიხის ყვავილები და ფუტკრები, ქოთნის მოხატვა), 1 სთ რობოტიკა (Micro:bit ტემპერატურისა და ნიადაგის ტენიანობის სენსორი, MakeCode, 2D ანიმაცია).",
+      takeHome: "ფინალური გრანდიოზული მაკეტის გამოფენა და კოდების ჩვენება დიდ ეკრანზე მშობლებთან ერთად (მე-8 შეხვედრა) + სერტიფიკატები."
+    },
+    "ice-world-project": {
+      id: "ice-world-project",
+      title: "ინტეგრირებული პროექტი „ყინულოვანი სამყარო“",
+      emoji: "❄️",
+      category: "project",
+      categoryName: "1-თვიანი ინტეგრირებული პროექტი",
+      price: 200,
+      ageMin: 8,
+      ageMax: 14,
+      duration: "4 კვირა (8 შეხვედრა • დღეში 3 სთ)",
+      description: "არქტიკისა და ანტარქტიდის კვლევა, პოლარული ბაზა, „მინი-მყინვარი“, იგლუები, ყინულმჭრელი გემი, ცხოველების გამოძერწვა, Micro:bit-ით ტემპერატურის უწყვეტი მონიტორინგი და LED ანიმაციები, სტოპ-მოუშენ ფოტოების ციფრული გაცოცხლება და ვიბრო-პინგვინების ინტეგრირება დიდ მაკეტში.",
+      takeHome: "საზეიმო ფინალი & გამოფენა მშობლებთან ერთად (მე-8 შეხვედრა) + სერტიფიკატები."
+    },
+    "robotics-club": {
+      id: "robotics-club",
+      title: "რობოტიკისა და კოდირების წრე",
+      emoji: "🤖",
+      category: "club",
+      categoryName: "რობოტიკის წრე",
+      price: 120, // monthly
+      ageMin: 8,
+      ageMax: 15,
+      isPaused: true,
+      groups: "8–11 წელი და 12–15 წელი",
+      duration: "კვირაში 2 შეხვედრა • 2 საათი (უწყვეტი წრე)",
+      description: "სრული გზა ვიზუალური პროგრამირებიდან (Code.org, CodeMonkey, Scratch, MakeCode) ტექსტურ კოდირებამდე (Python-ის საწყისები) და რეალურ მიკროკონტროლერებამდე (Micro:bit, Arduino). სენსორები (ტენიანობა, სინათლე, ტემპერატურა, მოძრაობა), სერვო ძრავები & ეკო-ტექნოლოგიური სინთეზი.",
+      takeHome: "საკუთარი ალგორითმებით მართვადი რობოტები, თამაშები და ჭკვიანი სისტემები."
+    }
+  },
+  mentors: {
+    irma: {
+      name: "ირმა დვალიშვილი",
+      role: "„ფუსფუსა დედამიწის“ ხელმძღვანელი",
+      badge: "🌿 დედამიწა",
+      bio: "ხელოვნების, ეკო-დიზაინისა და სისტემური აზროვნების პედაგოგი. ირმას მიზანია, ბავშვებმა შეისწავლონ ცოცხალი თუ არაცოცხალი სისტემების სასიცოცხლო ციკლები, მოძიებული ინფორმაციით, საკუთარი ფანტაზიითა და ბუნებრივი მასალებით რეალურ, ხელნაკეთ ნივთებად გარდაქმნან.",
+      competencies: [
+        "🌱 სასიცოცხლო ციკლები",
+        "🔄 სისტემური აზროვნება",
+        "🎨 პრაქტიკული ტექნიკები",
+        "💡 შემოქმედებითი წარმოსახვა",
+        "✋ ნატიფი მოტორიკა",
+        "🌟 თვითგამოხატვა"
+      ]
+    },
+    zika: {
+      name: "ზიკა დვალიშვილი",
+      role: "„ფუსფუსა ტექნოლოგიების“ ხელმძღვანელი",
+      badge: "💻 ტექნოლოგიები",
+      bio: "STEM განათლების, რობოტიკისა და ეკო-ტექნოლოგიური სინთეზის ხელმძღვანელი. ზიკას მიზანია, ტექნოლოგია ბავშვისთვის აქციოს შემოქმედების ჯადოსნურ ინსტრუმენტად: MakeCode/Scratch-ით ალგორითმული აზროვნების ჩამოყალიბებიდან Micro:bit-ითა და Arduino-თი ფიზიკური ნივთების გაცოცხლებამდე და ბუნებასთან დაკავშირებამდე.",
+      competencies: [
+        "🔄 ალგორითმული აზროვნება",
+        "🌿 ეკო-ტექნოლოგიური სინთეზი",
+        "💻 ბლოკური კოდირება",
+        "🤖 რობოტიკა და სენსორები",
+        "🔍 ინფორმაციის სანდოობა",
+        "🌟 ტექნოლოგიური თავდაჯერებულობა"
+      ]
+    }
+  },
+  showcase: [
+    { author: "ანა", age: 10, title: "მცენარეთა ჭკვიანი ეკო-დეტექტორი", desc: "Teachable Machine-ით ნეირონული ქსელის გაწვრთნა, რომელიც ვებკამერით ამოიცნობს მცენარის მორწყვის საჭიროებას." },
+    { author: "სანდრო", age: 8, title: "მფრინავი ფუტკურა და მისი საათი", desc: "ქაღალდზე დახატული ფუტკარი-რობოტის დასკანერება, ციფრული დამუშავება და 2D კადრობრივი ანიმაცია აუდიო ეფექტებით." },
+    { author: "დათო", age: 12, title: "ჭკვიანი თვით-მორწყავი რობოტი", desc: "Arduino-ზე დაპროგრამებული ნიადაგის ტენიანობის სენსორი და წყლის მინი-ტუმბო ხის კორპუსში." },
+    { author: "ნიკა & ლუკა", age: 11, title: "კონტეინერი ხის ამწე-ექსკავატორი", desc: "ხის დეტალებისგან და პიროგრაფიისგან შექმნილი მოძრავი ეკოლოგიური ამწე." }
+  ],
+  upcoming: [
+    "🌱 ჭკვიანი სათბური (Smart Greenhouse)",
+    "🌊 წყალქვეშა სამყაროს რობოტები",
+    "🪐 კოსმოსური სადგური & ხელოვნური ინტელექტი"
+  ],
+  registration: {
+    url: "contact.html#booking",
+    trialFreeNote: "პირველი გაცნობითი ვიზიტი და სახელოსნოს დათვალიერება სრულიად უფასოა!",
+    groupAllowed: "ჯგუფური რეგისტრაცია (2-დან 15 ბავშვამდე) მოქმედებს ერთდღიან ვორქშოფებზე."
+  }
+};
+
+// 2. სესიის მეხსიერება დიალოგისთვის (მხოლოდ მიმდინარე JS მეხსიერება, არა localStorage)
+const chatSessionContext = {
+  lastProgramId: null,
+  lastTopic: null,
+  knownChildAges: [],
+  lastQueryText: ""
+};
+
+// 3. ენობრივი დამუშავების დამხმარე მოდულები (NLU)
+
+// Stop-words სია (ზოგადი სიტყვები, რომლებმაც წონა არ უნდა გაზარდონ)
+const STOP_WORDS = new Set([
+  "და", "თუ", "ან", "კი", "რომ", "არის", "იყოს", "ეს", "რა", "როგორ",
+  "როდის", "სად", "რატომ", "ჩვენ", "თქვენ", "მე", "შენ", "მას", "გვაქვს",
+  "გაქვთ", "აქვს", "იქნება", "შეიძლება", "უნდა", "ხოლმე", "ძალიან", "კიდევ",
+  "გთხოვთ", "მითხარით", "მითხარი", "გვითხარით", "მაინტერესებს", "გვაინტერესებს"
+]);
+
+// ქართული სიტყვიერი რიცხვების ლექსიკონი ასაკის ამოსაცნობად
+const GEORGIAN_NUMBER_WORDS = {
+  "ექვს": 6, "ექვსი": 6, "შვიდ": 7, "შვიდი": 7, "რვა": 8, "ცხრა": 9, "ათ": 10, "ათი": 10,
+  "თერთმეტ": 11, "თერთმეტი": 11, "თორმეტ": 12, "თორმეტი": 12, "ცამეტ": 13, "ცამეტი": 13,
+  "თოთხმეტ": 14, "თოთხმეტი": 14, "თხუთმეტ": 15, "თხუთმეტი": 15, "თექვსმეტ": 16, "თექვსმეტი": 16,
+  "ჩვიდმეტ": 17, "ჩვიდმეტი": 17
+};
+
+// ლათინური ტრანსლიტერატორი ქართულ კლავიატურაზე
+function transliterateLatinToGeorgian(text) {
+  if (!text || !/[a-zA-Z]/.test(text)) return text;
+
+  let s = text;
+
+  // პირველ რიგში დიდი ასოების ტიპური ქართული კლავიატურული დამთხვევები
+  const upperMap = {
+    'T': 'თ', 'W': 'ჭ', 'C': 'ჩ', 'R': 'ღ', 'J': 'ჟ', 'S': 'შ', 'Z': 'ძ'
+  };
+  for (const [eng, geo] of Object.entries(upperMap)) {
+    s = s.split(eng).join(geo);
+  }
+
+  s = s.toLowerCase();
+
+  // დიგრაფების ჩანაცვლება
+  const digraphs = [
+    ["sh", "შ"], ["ch", "ჩ"], ["zh", "ჟ"], ["dz", "ძ"],
+    ["ts", "ც"], ["kh", "ხ"], ["gh", "ღ"], ["th", "თ"]
+  ];
+  for (const [dig, geo] of digraphs) {
+    s = s.split(dig).join(geo);
+  }
+
+  // ერთეული სიმბოლოების რუკა (t -> ტ, რადგან robotika, futkrebis, proeqti, boti, karti)
+  const charMap = {
+    'a': 'ა', 'b': 'ბ', 'g': 'გ', 'd': 'დ', 'e': 'ე', 'v': 'ვ', 'z': 'ზ',
+    't': 'ტ', 'i': 'ი', 'k': 'კ', 'l': 'ლ', 'm': 'მ', 'n': 'ნ', 'o': 'ო',
+    'p': 'პ', 'j': 'ჯ', 'r': 'რ', 's': 'ს', 'u': 'უ', 'f': 'ფ', 'q': 'ქ',
+    'y': 'ყ', 'w': 'წ', 'x': 'ხ', 'c': 'ც', 'h': 'ჰ'
+  };
+
+  let out = "";
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    out += charMap[ch] || ch;
+  }
+  return out;
+}
+
+// ქართული ტექსტის ნორმალიზატორი
 function normalizeGeorgian(text) {
-  return text
+  if (!text) return "";
+  const translit = transliterateLatinToGeorgian(text);
+  return translit
     .toLowerCase()
     .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"'„“»«\r\n]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
 
+// გაუმჯობესებული ქართული მორფოლოგიური სტემერი (ბრუნვები, მრავლობითი, თანდებულები)
 function getGeorgianStems(word) {
-  if (word.length <= 3) return [word];
+  if (!word || word.length <= 3) return [word];
   const stems = [word];
   const suffixes = [
-    "ებისთვის", "ებთან", "ებამდე", "ებში", "ებზე", "ებმა", "ების", "ებს", "ებო", "ებ",
-    "ისთვის", "ამდე", "თან", "ში", "ზე", "ით", "ად", "ის", "მა", "ო", "ი", "ს"
+    // რთული სუფიქსები / თანდებულები მრავლობითით
+    "ებისთვის", "ებთან", "ებამდე", "ებში", "ებზე", "ებმა", "ების", "ებს", "ებო", "ები", "ებ",
+    // ბრუნვისა და თანდებულის ნიშნები მხოლობითში
+    "ისთვის", "ამდე", "თან", "ში", "ზე", "ით", "ად", "ის", "მა", "დან", "გან", "ავით", "ურთ", "ო", "ი", "ს"
   ];
+
   for (const sfx of suffixes) {
     if (word.endsWith(sfx) && word.length - sfx.length >= 3) {
       stems.push(word.slice(0, -sfx.length));
@@ -1445,115 +1768,251 @@ function getGeorgianStems(word) {
   return stems;
 }
 
-// 20+ Detailed Mobilized Knowledge Modules covering EVERY section of the site
+// Levenshtein მანძილის ალგორითმი Fuzzy Matching-ისთვის
+function levenshteinDistance(s1, s2) {
+  if (s1 === s2) return 0;
+  if (!s1.length) return s2.length;
+  if (!s2.length) return s1.length;
+
+  const d = [];
+  for (let i = 0; i <= s1.length; i++) d[i] = [i];
+  for (let j = 0; j <= s2.length; j++) d[0][j] = j;
+
+  for (let i = 1; i <= s1.length; i++) {
+    for (let j = 1; j <= s2.length; j++) {
+      const cost = s1[i - 1] === s2[j - 1] ? 0 : 1;
+      d[i][j] = Math.min(
+        d[i - 1][j] + 1,
+        d[i][j - 1] + 1,
+        d[i - 1][j - 1] + cost
+      );
+    }
+  }
+  return d[s1.length][s2.length];
+}
+
+function isFuzzyMatch(w1, w2) {
+  if (w1 === w2) return true;
+  if (Math.abs(w1.length - w2.length) > 2) return false;
+  const maxLen = Math.max(w1.length, w2.length);
+  if (maxLen <= 3) return w1 === w2;
+  const maxDist = maxLen >= 7 ? 2 : 1;
+  return levenshteinDistance(w1, w2) <= maxDist;
+}
+
+// ასაკების ჭკვიანი ამოცნობა (ციფრები, სიტყვიერი რიცხვები, რამდენიმე ბავშვი)
+function extractAgesFromText(text) {
+  const norm = normalizeGeorgian(text);
+  const foundAges = new Set();
+
+  // ციფრები 5-დან 17-მდე
+  const digitMatches = norm.match(/\b([5-9]|1[0-7])\b/g);
+  if (digitMatches) {
+    digitMatches.forEach(d => foundAges.add(parseInt(d, 10)));
+  }
+
+  // ქართული სიტყვიერი რიცხვები
+  const words = norm.split(" ");
+  for (const w of words) {
+    if (GEORGIAN_NUMBER_WORDS[w]) {
+      foundAges.add(GEORGIAN_NUMBER_WORDS[w]);
+    } else {
+      const stems = getGeorgianStems(w);
+      for (const st of stems) {
+        if (GEORGIAN_NUMBER_WORDS[st]) {
+          foundAges.add(GEORGIAN_NUMBER_WORDS[st]);
+          break;
+        }
+      }
+    }
+  }
+
+  return Array.from(foundAges).sort((a, b) => a - b);
+}
+
+// არათემატური შეკითხვების ამომცნობი (OutOfScope Guard)
+function isOutOfScope(normText) {
+  const oosKeywords = [
+    "პოლიტიკ", "არჩევნ", "პარლამენტ", "პრეზიდენტ", "პრემიერ", "მთავრობ", "ოპოზიცი", "პარტი",
+    "წამალ", "ექიმ", "დიაგნოზ", "დაავადებ", "ვირუს", "მკურნალობ", "აფთიაქ", "ტკივილ",
+    "რელიგი", "ეკლესი", "ჰოროსკოპ", "ასტროლოგი", "ზოდიაქ",
+    "კრიპტო", "ბიტკოინ", "სესხ", "კრედიტ", "ტოტალიზატორ", "კაზინო", "ფსონ",
+    "ამინდ", "იწვიმებს", "პროგნოზ",
+    "საშინაო დავალება გამიკეთე", "დამიწერე რეფერატ"
+  ];
+  return oosKeywords.some(kw => normText.includes(kw));
+}
+
+// პირადი მონაცემების დაცვის შემმოწმებელი
+function containsPersonalData(rawText, normText) {
+  const phonePattern = /(?:\+?995)?\s*5\d{2}[\s-]?\d{2}[\s-]?\d{2}[\s-]?\d{2}/;
+  if (phonePattern.test(rawText)) return true;
+  if (normText.includes("პირადი ნომერი") || normText.includes("პირადობა") || normText.includes("პასპორტ")) return true;
+  return false;
+}
+
+// სინონიმების ლექსიკონი
+const SYNONYMS = {
+  price: ["ფას", "ღირს", "ღირებულებ", "გადასახად", "საფასურ", "ტარიფ", "თანხ", "რა ჯდება", "რამდენია"],
+  workshop: ["ვორქშოფ", "მასტერკლას", "ერთდღიან", "ერთ დღიან", "ერთჯერად"],
+  project: ["პროექტ", "ერთთვიან", "ერთ თვიან", "თვიან"],
+  club: ["წრე", "კლუბ", "უწყვეტ", "ყოველკვირეულ"],
+  location: ["სად", "მისამართ", "ლოკაცი", "ადგილმდებარეობ", "რუკ", "როგორ მოვიდეთ", "სადაა", "რომელ ქუჩაზე"],
+  contact: ["ტელეფონ", "ნომერ", "მეილ", "ელფოსტ", "კონტაქტ", "დარეკვ", "დაკავშირებ", "ფეისბუქ", "facebook"],
+  mentor: ["ხელმძღვანელ", "დამფუძნებელ", "მენტორ", "მასწავლებელ", "პედაგოგ", "ვინ ასწავლის", "ვინ უძღვება"],
+  registration: ["რეგისტრაცი", "ჩაწერ", "დაჯავშნ", "დარეგისტრირ", "ვიზიტ", "როგორ ჩავეწეროთ"],
+  freeTrial: ["უფასო", "საცდელ", "გაცნობით", "პირველ შეხვედრ", "პირველ დღე"],
+  materials: ["მასალ", "ხელსაწყო", "რა მოვიტანოთ", "თან წამოღება", "თან მოტანა", "რა სჭირდება"],
+  duration: ["ხანგრძლივობ", "რამდენ ხანს", "რამდენი საათი", "რამდენი კვირა", "დრო"],
+  schedule: ["გრაფიკ", "განრიგ", "სამუშაო საათ", "როდის მუშაობთ", "როდის ტარდება", "დრო"],
+  group: ["ჯგუფ", "სკოლ", "კლას", "ექსკურსი", "კოლექტივ"]
+};
+
+// 4. ცოდნის მოდულები (28 სრულფასოვანი მოდული, აგებული SITE_FACTS-ზე)
 const FUSFUSA_SITE_KNOWLEDGE = [
   // 1. ყინულოვანი სამყარო (1-Month Project)
   {
     id: "project_ice_world",
-    keywords: ["ყინულოვან", "ყინულოვანი", "ყინულ", "არქტიკ", "ანტარქტიდ", "პოლარულ", "პოლარული", "მყინვარ", "დათვ", "სელაპ", "იგლუ", "ყინულმჭრელ"],
-    intents: ["ყინულოვანი სამყარო", "ყინულოვან სამყაროზე", "პოლარული ბაზა", "არქტიკა", "ანტარქტიდა", "მინი მყინვარი", "პოლარული დათვი"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>„ყინულოვანი სამყარო“ ❄️🧊🐧</strong> ჩვენი 1-თვიანი გრანდიოზული ინტეგრირებული პროექტია (4 კვირა, 8 შეხვედრა • დღეში 3 სთ • 8–14 წელი):<br>• <strong>საათი 1 (შემეცნება):</strong> არქტიკისა და ანტარქტიდის ეკოსისტემები, პოლარული ცხოველები (დათვები, პინგვინები, სელაპები), კვების ჯაჭვი და გლობალური დათბობის გავლენა.<br>• <strong>საათი 2 (სახელოსნო):</strong> პოლარული ბაზის შექმნა (მუყაო, ფოლგა), „მინი-მყინვარი“, იგლუები, ყინულმჭრელი გემი, ცხოველების გამოძერწვა, 1 დიდ მაკეტად გაერთიანება და ამბავი („ერთი დღე პოლარული დათვის ცხოვრებაში“)!`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• <strong>საათი 3 (რობოტიკა):</strong> Micro:bit-ით ტემპერატურის უწყვეტი მონიტორინგი და LED ანიმაციები, სტოპ-მოუშენ ფოტოების ციფრული გაცოცხლება, ვიბრაციული პინგვინების ძრავებისა და წრედების ინტეგრირება დიდ მაკეტში.<br>• <strong>კვირა 4 / დღე 2:</strong> საზეიმო ფინალი & გამოფენა მშობლებთან ერთად — შექმნილი მაკეტის, გაცოცხლებული ფოტოებისა და მოძრავი ვიბრო-პინგვინების პრეზენტაცია და სერტიფიკატები!`
-      }
-    ]
+    programId: "ice-world-project",
+    keywords: ["ყინულოვან", "ყინულოვანი", "ყინულ", "არქტიკ", "ანტარქტიდ", "პოლარულ", "მყინვარ", "დათვ", "სელაპ", "იგლუ", "ყინულმჭრელ"],
+    intents: ["ყინულოვანი სამყარო", "ყინულოვან სამყაროზე", "პოლარული ბაზა", "არქტიკა", "ანტარქტიდა", "მინი მყინვარი"],
+    respond: () => {
+      const p = SITE_FACTS.programs["ice-world-project"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "project_ice_world";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>${p.title} ❄️🧊🐧</strong> — ${p.categoryName}ა (${p.duration} • ${p.ageMin}–${p.ageMax} წელი • <strong>💰 ${p.price} ლარი</strong>):<br>• <strong>საათი 1 (შემეცნება & ბუნება):</strong> არქტიკისა და ანტარქტიდის ეკოსისტემები, პოლარული ცხოველები (დათვები, პინგვინები, სელაპები), კვების ჯაჭვი და კლიმატის ცვლილება.<br>• <strong>საათი 2 (სახელოსნო & ხელსაქმე):</strong> პოლარული ბაზის შექმნა (მუყაო, ფოლგა), „მინი-მყინვარი“, იგლუები, ყინულმჭრელი გემი, ცხოველების გამოძერწვა და 1 დიდ მაკეტად გაერთიანება!`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>საათი 3 (რობოტიკა & ანიმაცია):</strong> Micro:bit-ით ტემპერატურის უწყვეტი მონიტორინგი და LED ანიმაციები, სტოპ-მოუშენ ფოტოების ციფრული გაცოცხლება, ვიბრაციული პინგვინების ინტეგრირება დიდ მაკეტში.<br>• <strong>${p.takeHome}</strong><br><a href="contact.html?project=${p.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ პროექტზე რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
   // 2. მოფუსფუსე პინგვინი ყინულზე (1-Day Workshop)
   {
     id: "workshop_penguin",
+    programId: "workshop-penguin",
     keywords: ["პინგვინ", "მოფუსფუსე", "ვიბრო", "ვიბრაცი", "სრიალ", "ფოლგ", "ხახუნ", "ძრავ", "ვიბროძრავ", "cr2032"],
     intents: ["მოფუსფუსე პინგვინი", "პინგვინი ყინულზე", "პინგვინის ვორქშოფი", "ხახუნის ძალა", "ვიბრო ძრავი"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>🐧 ვორქშოფი: „მოფუსფუსე პინგვინი ყინულზე“</strong> (1.5–2 სთ • 7–10 წელი) კინეტიკური ინჟინერიისა და ბუნებისმეტყველების სინთეზია!<br>• <strong>შემეცნებითი შესავალი:</strong> პოლარული ეკოსისტემები, როგორ ეგუებიან პინგვინები სიცივეს, რატომ სრიალებენ მუცლით და ხახუნის ძალის ფიზიკა (რატომ სრიალებს ფოლგაზე უკეთ, ვიდრე ხაოიან მუყაოზე).<br>• <strong>„ფუსფუსა დედამიწა“:</strong> მუყაოსგან პინგვინის კონტურის გამოჭრა, ფერადი ქაღალდებით გაფორმება და საერთო ფოლგის „ყინულის მოედნის“ შექმნა.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• <strong>„ფუსფუსა ტექნოლოგიები“:</strong> მარტივი ელექტრული წრედის გაცნობა ეკრანის გარეშე (3V ბრტყელი ელემენტი CR2032 და მინი-ვიბროძრავი). წრედის შეკვრისას ძრავი ვიბრირებს, პინგვინი ფოლგის ყინულზე სწრაფად სრიალებს და ეწყობა მხიარული რბოლა! ბავშვს საკუთარი შექმნილი რობო-პინგვინი სახლში მიაქვს!`
-      }
-    ]
+    respond: () => {
+      const p = SITE_FACTS.programs["workshop-penguin"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "workshop_penguin";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>🐧 ვორქშოფი: „${p.title}“</strong> (${p.duration} • ${p.ageMin}–${p.ageMax} წელი • <strong>💰 ${p.price} ლარი</strong>) კინეტიკური ინჟინერიისა და ბუნებისმეტყველების სინთეზია!<br>• <strong>შემეცნება & ეკოლოგია:</strong> პოლარული ეკოსისტემები, როგორ უძლებენ პინგვინები სიცივეს, რატომ სრიალებენ მუცლით და ხახუნის ძალის ფიზიკა.<br>• <strong>„ფუსფუსა დედამიწა“:</strong> მუყაოსგან პინგვინის გამოჭრა, გაფორმება და საერთო ფოლგის „ყინულის მოედნის“ შექმნა.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>„ფუსფუსა ტექნოლოგიები“:</strong> მარტივი ელექტრული წრედის გაცნობა ეკრანის გარეშე (3V ბრტყელი ელემენტი CR2032 და მინი-ვიბროძრავი). წრედის შეკვრისას ძრავი ვიბრირებს, პინგვინი ფოლგის ყინულზე სწრაფად სრიალებს და ეწყობა მხიარული რბოლა!<br>• <strong>${p.takeHome}</strong><br><a href="contact.html?course=${p.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ვორქშოფზე რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
   // 3. მანათობელი საახალწლო ბარათი (1-Day Workshop)
   {
     id: "workshop_card",
+    programId: "workshop-card",
     keywords: ["ბარათ", "საახალწლო", "მანათობელ", "ნათურ", "სპილენძ", "ლენტ", "წრედ", "led", "closed circuit"],
     intents: ["მანათობელი საახალწლო ბარათი", "საახალწლო ბარათი", "მანათობელი ბარათი", "სპილენძის ლენტი"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>🎄 ვორქშოფი: „მანათობელი საახალწლო ბარათი“</strong> (1.5–2 სთ • 6–14 წელი)! სახელოსნოში ბავშვები ქმნიან ბარათის დიზაინს (ნაძვის ხე, ირემი, ვარსკვლავები), ამზადებენ ქაღალდს და აფორმებენ ვიზუალს.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ტექნოლოგიურ ნაწილში კი კოდირების გარეშე ეცნობიან <strong>„შეკრული წრედის“ (Closed Circuit)</strong> პრინციპს: აკრავენ სპილენძის წებოვან ლენტს (Copper tape), ამონტაჟებენ LED ნათურასა და 3V ბრტყელ ელემენტს. ბარათის დაკეცვისას ან თითის დაჭერით ნახატი ჯადოსნურად ნათდება! ბავშვს სახლში მიაქვს თავისი შექმნილი ინტერაქტიული საჩუქარი!`
-      }
-    ]
+    respond: () => {
+      const p = SITE_FACTS.programs["workshop-card"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "workshop_card";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>🎄 ვორქშოფი: „${p.title}“</strong> (${p.duration} • ${p.ageMin}–${p.ageMax} წელი • <strong>💰 ${p.price} ლარი</strong>)! სახელოსნოში ბავშვები ქმნიან ბარათის დიზაინს (ნაძვის ხე, ირემი, ვარსკვლავები), ამზადებენ ქაღალდს და აფორმებენ ვიზუალს („ფუსფუსა დედამიწა“).`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ტექნოლოგიურ ნაწილში კი კოდირების გარეშე ეცნობიან <strong>„შეკრული წრედის“ (Closed Circuit)</strong> პრინციპს: აკრავენ სპილენძის წებოვან ლენტს (Copper tape), ამონტაჟებენ LED ნათურასა და 3V ბრტყელ ელემენტს („ფუსფუსა ტექნოლოგიები“). ბარათის დაჭერისას ნახატი ჯადოსნურად ნათდება! ბავშვს სახლში მიაქვს თავისი შექმნილი ინტერაქტიული საჩუქარი!<br><a href="contact.html?course=${p.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ბარათის ვორქშოფზე რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
   // 4. თიხის მანათობელი ეკო-ლამპიონი (1-Day Workshop)
   {
     id: "workshop_clay_lamp",
+    programId: "workshop-clay-lamp",
     keywords: ["ლამპიონ", "თიხის", "თიხა", "სანათ", "ძერწვ", "პერფორაცი", "ორნამენტ"],
     intents: ["თიხის მანათობელი ეკო ლამპიონი", "ეკო ლამპიონი", "თიხის სანათი", "თიხის ლამპიონი"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>🕯️ ვორქშოფი: „თიხის მანათობელი ეკო-ლამპიონი“</strong> (1 შეხვედრა • 2 სთ • 6–12 წელი)! ბავშვები ბუნებრივი თიხის ფირფიტებისგან ძერწავენ გუმბათოვან ლამპიონს, ჭრიან ორნამენტებსა და ვარსკვლავებს სინათლის გასასვლელად.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `შემდეგ შიგნით ვამონტაჟებთ უსაფრთხო, ავტონომიურ LED მანათობელ მოდულს. შედეგად ბავშვი საკუთარი ხელით შექმნილ ულამაზეს მაგიდის სანათს მიაბრძანებს სახლში!`
-      }
-    ]
+    respond: () => {
+      const p = SITE_FACTS.programs["workshop-clay-lamp"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "workshop_clay_lamp";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>🕯️ ვორქშოფი: „${p.title}“</strong> (${p.duration} • ${p.ageMin}–${p.ageMax} წელი • <strong>💰 ${p.price} ლარი</strong>)! ბავშვები ბუნებრივი თიხისგან ძერწავენ გუმბათოვან ლამპიონს, ჭრიან ორნამენტებსა და ვარსკვლავებს სინათლის გასასვლელად.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `შემდეგ შიგნით ვამონტაჟებთ უსაფრთხო, ავტონომიურ LED მანათობელ მოდულს. შედეგად ბავშვი საკუთარი ხელით შექმნილ ულამაზეს მაგიდის სანათს მიაბრძანებს სახლში!<br><a href="contact.html?course=${p.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ლამპიონის ვორქშოფზე რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
-  // 5. ფუსფუსა ფუტკრები (3-Week Integrated Project)
+  // 5. ფუსფუსა ფუტკრები (4-Week Integrated Project)
   {
     id: "project_bees",
+    programId: "bees-project",
     keywords: ["ფუტკ", "ფუტკრებ", "სკა", "სკებ", "ყვავილ", "დარგვ", "ქოთან", "ნიადაგ", "ტენიანობ"],
     intents: ["ფუსფუსა ფუტკრები", "ფუტკრების პროექტი", "სკების მაკეტი", "მცენარეების დარგვა"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>🐝 ინტეგრირებული პროექტი „ფუსფუსა ფუტკრები“</strong> (3 კვირა, 6 შეხვედრა • დღეში 3 სთ • 8–12 წელი):<br>• <strong>საათი 1 (შემეცნება):</strong> ფუტკრის ანატომია, ეკოსისტემები, ბიომიმიკრია და მცენარეების დარგვა.<br>• <strong>საათი 2 (სახელოსნო):</strong> ხის ნამდვილი სკის მაკეტის აწყობა, თიხის ყვავილების ძერწვა, ქოთნის მოხატვა და 1 დიდ მაკეტად გაერთიანება!`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• <strong>საათი 3 (რობოტიკა & ანიმაცია):</strong> micro:bit სენსორით ნიადაგის ტენიანობის გაზომვა (როდის სჭირდება მცენარეს მორწყვა) და ფუტკრის 2D ციფრული ანიმაცია! ფინალში — საზეიმო ჩვენება მშობლებთან ერთად!`
-      }
-    ]
+    respond: () => {
+      const p = SITE_FACTS.programs["bees-project"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "project_bees";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>🐝 ${p.title}</strong> — ${p.categoryName}ა (${p.duration} • ${p.ageMin}–${p.ageMax} წელი • <strong>💰 ${p.price} ლარი</strong>):<br>• <strong>30 წთ შემეცნება:</strong> ფუტკრის ანატომია, ეკოსისტემები, ბიომიმიკრია და მცენარეების დარგვა.<br>• <strong>1.5 სთ სახელოსნო:</strong> ხის ნამდვილი სკის მაკეტის აწყობა, თიხის ყვავილებისა და ფუტკრის ძერწვა, ქოთნის მოხატვა და 1 დიდ მაკეტად გაერთიანება!`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>1 სთ რობოტიკა & ანიმაცია:</strong> Micro:bit სენსორით ტემპერატურისა და ნიადაგის ტენიანობის კონტროლი, ფუტკრის 2D ციფრული ანიმაცია!<br>• <strong>${p.takeHome}</strong><br><a href="contact.html?project=${p.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ფუტკრების პროექტზე რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
   // 6. რობოტიკისა და კოდირების წრე (Regular Club)
   {
     id: "robotics_club",
+    programId: "robotics-club",
     keywords: ["რობოტიკ", "კოდირებ", "პროგრამირებ", "წრე", "scratch", "makecode", "micro:bit", "მიკრობიტ", "arduino", "არდუინო", "python", "პითონ", "სენსორ", "სერვო"],
     intents: ["რობოტიკის წრე", "კოდირების წრე", "პროგრამირების წრე", "რას ისწავლის რობოტიკაში", "როგორ ვასწავლით კოდირებას"],
-    respond: () => [
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `<strong>🤖 რობოტიკისა და კოდირების წრე (8–11 და 12–15 წელი):</strong><br>სრული გზა ვიზუალური ბლოკური პროგრამირებიდან (Code.org, Scratch, MakeCode) ტექსტურ კოდირებამდე (Python-ის საწყისები) და რეალურ მიკროკონტროლერებამდე (Micro:bit, Arduino)!<br>• <strong>ალგორითმული აზროვნება:</strong> ლოგიკა, ციკლები, პირობითი ნიშნები.<br>• <strong>ეკო-ტექნოლოგიური სინთეზი:</strong> სენსორები (ტენიანობა, სინათლე, ტემპერატურა) და სერვო ძრავები.<br>• <strong>ტექნოლოგიური თავდაჯერებულობა:</strong> ბავშვი ხდება არა პასიური მომხმარებელი, არამედ ციფრული სამყაროს ნამდვილი შემოქმედი!`
-      }
-    ]
+    respond: () => {
+      const p = SITE_FACTS.programs["robotics-club"];
+      chatSessionContext.lastProgramId = p.id;
+      chatSessionContext.lastTopic = "robotics_club";
+      return [
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `<strong>🤖 ${p.title} (${p.groups} • 💰 ${p.price} ლარი / თვეში):</strong><br><em>(შენიშვნა: ამ ეტაპზე ცალკე რობოტიკის წრეზე მიღება დროებით შეჩერებულია).</em><br>${p.duration}. სრული გზა ვიზუალური ბლოკური პროგრამირებიდან (Code.org, CodeMonkey, Scratch, MakeCode) ტექსტურ კოდირებამდე (Python-ის საწყისები) და რეალურ მიკროკონტროლერებამდე (Micro:bit, Arduino)!<br>• <strong>ალგორითმული აზროვნება:</strong> ლოგიკა, ციკლები, პირობითი ნიშნები.<br>• <strong>ეკო-ტექნოლოგიური სინთეზი:</strong> სენსორები (ტენიანობა, სინათლე, ტემპერატურა) და სერვო ძრავები.<br>• რობოტიკა და Micro:bit სრულად არის ინტეგრირებული ჩვენს 1-თვიან პროექტებში: ❄️ „ყინულოვანი სამყარო“ და 🐝 „ფუსფუსა ფუტკრები“!<br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ მიმდინარე პროექტების დაჯავშნა →</a>`
+        }
+      ];
+    }
   },
 
   // 7. 3-საათიანი ინტეგრირებული მოდელის არსი
@@ -1561,18 +2020,21 @@ const FUSFUSA_SITE_KNOWLEDGE = [
     id: "three_hour_structure",
     keywords: ["3 საათ", "სამი საათ", "საათიან", "მოდელ", "განრიგ", "სტრუქტურ", "როგორ მიმდინარეობს", "დღის გეგმა"],
     intents: ["3 საათიანი მოდელი", "სამსაათიანი მოდელი", "როგორ ტარდება გაკვეთილი", "რას აკეთებენ თითოეულ საათში"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>🔬 ჩვენი უნიკალური 3-საათიანი ინტეგრირებული მოდელი:</strong><br>• <strong>საათი 1 (შემეცნება & ბუნება):</strong> თემის გაცნობა, კითხვა-პასუხი, ინფორმაციის მოძიება და ანალიზი (მაგ: პოლარული ეკოსისტემები ან ფუტკრის ანატომია).<br>• <strong>საათი 2 (სახელოსნო & ხელსაქმე):</strong> მუშაობა ბუნებრივი მასალებით — ხის დამუშავება, თიხა, მაკეტირება, ნატიფი მოტორიკა და რეალური ფიზიკური ნივთის შექმნა.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• <strong>საათი 3 (რობოტიკა & ტექნოლოგიები):</strong> მიკრობიტის სქემები, სენსორები, კოდირება და შექმნილი მაკეტის ტექნოლოგიური გაცოცხლება (ტემპერატურის კონტროლი, ძრავები, 2D ანიმაცია)! ყოველი შეხვედრა ბავშვისთვის სრულფასოვანი შემოქმედებითი თავგადასავალია!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "three_hour_structure";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>🔬 ჩვენი უნიკალური 3-საათიანი ინტეგრირებული მოდელი:</strong><br>• <strong>საათი 1 (შემეცნება & ბუნება - 30 წთ):</strong> თემის გაცნობა, კითხვა-პასუხი, ინფორმაციის მოძიება და ანალიზი (მაგ: პოლარული ეკოსისტემები ან ფუტკრის ანატომია).<br>• <strong>საათი 2 (სახელოსნო & ხელსაქმე - 1.5 სთ):</strong> მუშაობა ბუნებრივი მასალებით — ხის დამუშავება, თიხა, მაკეტირება, ნატიფი მოტორიკა და რეალური ფიზიკური ნივთის შექმნა.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>საათი 3 (რობოტიკა & ტექნოლოგიები - 1 სთ):</strong> Micro:bit-ის სქემები, სენსორები, კოდირება და შექმნილი მაკეტის ტექნოლოგიური გაცოცხლება (ტემპერატურის კონტროლი, ძრავები, 2D ანიმაცია)! ყოველი შეხვედრა ბავშვისთვის სრულფასოვანი შემოქმედებითი თავგადასავალია!`
+        }
+      ];
+    }
   },
 
   // 8. დამფუძნებლები და ხელმძღვანელები: ირმა და ზიკა დვალიშვილები
@@ -1580,268 +2042,436 @@ const FUSFUSA_SITE_KNOWLEDGE = [
     id: "mentors_founders",
     keywords: [
       "ირმა", "ზიკა", "დვალიშვილ", "მენტორ", "მასწავლებელ", "პედაგოგ", "დამფუძნებელ",
-      "ხელმძღვანელ", "ხელმძღვანელი", "ხელმძღვანელობს", "ხელმძღვანელები", "უძღვებ", "უძღვება",
-      "ავტორ", "ასწავლის", "ვინ", "ვის", "ვისი"
+      "ხელმძღვანელ", "ხელმძღვანელი", "ხელმძღვანელობს", "ხელმძღვანელები", "უძღვებ", "ავტორ", "ასწავლის"
     ],
     intents: [
-      "ვინ ხელმძღვანელობს",
-      "ვის ხელმძღვანელობს",
-      "ვისი ხელმძღვანელობით",
-      "ვინ უძღვება ამ პროექტებს",
-      "ვინ ხელმძღვანელობს ამ პროექტებს",
-      "ვის ხელმძღვანელობს ამ პროექტებს",
-      "ვინ არიან დამფუძნებლები",
-      "ვინ არიან ხელმძღვანელები",
-      "ირმა დვალიშვილი",
-      "ზიკა დვალიშვილი",
-      "სახელოსნოს ხელმძღვანელები",
-      "ვინ ასწავლის სახელოსნოში",
-      "ვინ არიან პედაგოგები",
-      "ვინ არიან მენტორები"
+      "ვინ ხელმძღვანელობს", "ვისი ხელმძღვანელობით", "ვინ უძღვება ამ პროექტებს",
+      "ვინ არიან დამფუძნებლები", "ვინ არიან ხელმძღვანელები", "ირმა დვალიშვილი",
+      "ზიკა დვალიშვილი", "სახელოსნოს ხელმძღვანელები", "ვინ არიან პედაგოგები"
     ],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `პროექტებსა და სახელოსნოს უძღვებიან მისი დამფუძნებლები — <strong>ირმა დვალიშვილი</strong> და <strong>ზიკა დვალიშვილი</strong>!<br>• 🌿 <strong>ირმა დვალიშვილი</strong> ხელმძღვანელობს „ფუსფუსა დედამიწის“ მიმართულებას (ხელოვნება, ეკო-დიზაინი, ბუნებრივი მასალები და სისტემური აზროვნება). იგი უძღვება შემეცნებით და სახელოსნო ეტაპებს.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• 💻 <strong>ზიკა დვალიშვილი</strong> ხელმძღვანელობს „ფუსფუსა ტექნოლოგიების“ მიმართულებას (STEM განათლება, რობოტიკა, კოდირება და ელექტრონიკა). იგი უძღვება რობოტიკის ლაბორატორიას, Micro:bit-ისა და Arduino-ს პროექტებს!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "mentors";
+      const irma = SITE_FACTS.mentors.irma;
+      const zika = SITE_FACTS.mentors.zika;
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნოს უძღვებიან მისი დამფუძნებლები — <strong>${irma.name}</strong> და <strong>${zika.name}</strong>!<br>• 🌿 <strong>${irma.name}</strong> — ${irma.role}. ${irma.bio}<br><em>კომპეტენციები:</em> ${irma.competencies.join(", ")}.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• 💻 <strong>${zika.name}</strong> — ${zika.role}. ${zika.bio}<br><em>კომპეტენციები:</em> ${zika.competencies.join(", ")}.<br><a href="mentors.html" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">👩‍🏫 დამფუძნებლების გვერდის ნახვა →</a>`
+        }
+      ];
+    }
   },
 
-  // 9. რეგისტრაცია და ონლაინ დაჯავშნა
+  // 9. ირმა დვალიშვილი (ცალკე მიმართვა)
+  {
+    id: "mentor_irma",
+    keywords: ["ირმა", "ირმას", "ირმა დვალიშვილ"],
+    intents: ["ვინ არის ირმა", "ირმა დვალიშვილი", "ირმა მასწავლებელი"],
+    respond: () => {
+      chatSessionContext.lastTopic = "mentors";
+      const irma = SITE_FACTS.mentors.irma;
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>${irma.name}</strong> — ${irma.role}, ხელოვნების, ეკო-დიზაინისა და სისტემური აზროვნების პედაგოგი.<br>${irma.bio}<br><em>კომპეტენციები:</em> ${irma.competencies.join(", ")}.`
+        }
+      ];
+    }
+  },
+
+  // 10. ზიკა დვალიშვილი (ცალკე მიმართვა)
+  {
+    id: "mentor_zika",
+    keywords: ["ზიკა", "ზიკას", "ზიკა დვალიშვილ"],
+    intents: ["ვინ არის ზიკა", "ზიკა დვალიშვილი", "ზიკა მასწავლებელი"],
+    respond: () => {
+      chatSessionContext.lastTopic = "mentors";
+      const zika = SITE_FACTS.mentors.zika;
+      return [
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `<strong>${zika.name}</strong> — ${zika.role}, STEM განათლების, რობოტიკისა და ეკო-ტექნოლოგიური სინთეზის ხელმძღვანელი.<br>${zika.bio}<br><em>კომპეტენციები:</em> ${zika.competencies.join(", ")}.`
+        }
+      ];
+    }
+  },
+
+  // 11. რეგისტრაცია და ონლაინ დაჯავშნა
   {
     id: "registration_booking",
     keywords: ["რეგისტრაცი", "დარეგისტრირ", "ჩაწერ", "დაჯავშნ", "ვიზიტ", "როგორ ჩავეწეროთ", "სად დავრეგისტრირდე"],
     intents: ["როგორ დავრეგისტრირდეთ", "რეგისტრაცია", "ვიზიტის დაჯავშნა", "ადგილის დაჯავშნა"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `რეგისტრაცია ძალიან მარტივია! შეგიძლიათ პირდაპირ ჩვენს საიტზე შეავსოთ ფორმა <a href="contact.html#booking" style="color:var(--color-green-dark); font-weight:bold; text-decoration:underline;">„რეგისტრაცია“</a>.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ფორმის შევსების შემდეგ ჩვენი მენტორი მალე დაგიკავშირდებათ ზუსტი დროისა და დეტალების შესათანხმებლად. ასევე შეგიძლიათ პირდაპირ დაგვირეკოთ: <strong>+995 577 101 301</strong> ან მოგვწეროთ: <strong>info@fusfusa.ge</strong>.`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "registration";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `რეგისტრაცია ძალიან მარტივია! შეგიძლიათ პირდაპირ ჩვენს საიტზე შეავსოთ ფორმა <a href="${SITE_FACTS.registration.url}" style="color:var(--color-green-dark); font-weight:bold; text-decoration:underline;">„რეგისტრაცია & დაჯავშნა“</a>.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>${SITE_FACTS.registration.trialFreeNote}</strong><br>ფორმის შევსების შემდეგ ჩვენი მენტორი მალე დაგიკავშირდებათ ზუსტი დროისა და დეტალების შესათანხმებლად. ასევე შეგიძლიათ პირდაპირ დაგვირეკოთ: <strong>${SITE_FACTS.contacts.phone}</strong> ან მოგვწეროთ: <strong>${SITE_FACTS.contacts.email}</strong>.`
+        }
+      ];
+    }
   },
 
-  // 10. ჯგუფური რეგისტრაცია და სკოლები
+  // 12. უფასო საცდელი / პირველი ვიზიტი
+  {
+    id: "free_trial_visit",
+    keywords: ["უფასო", "საცდელ", "გაცნობ", "უფასოა", "ვიზიტი უფასოა", "პირველი გაკვეთილი უფასოა", "საცდელი ვიზიტი"],
+    intents: ["საცდელი ვიზიტი უფასოა", "პირველი შეხვედრა უფასოა", "უფასო გაკვეთილი"],
+    respond: () => {
+      chatSessionContext.lastTopic = "registration";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `დიახ! <strong>${SITE_FACTS.registration.trialFreeNote}</strong> ბავშვი ეცნობა სახელოსნოს მყუდრო სივრცეს, ბუნებრივ მასალებსა და მენტორებს ყოველგვარი ვალდებულების გარეშე.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `მობრძანდით, გამოსცადეთ რობოტიკის ხელსაწყოები, ხოლო თუ მოგეწონებათ, შემდეგ შეარჩევთ სასურველ მიმართულებას (ვორქშოფები: 50 ₾, პროექტები: 200 ₾, რობოტიკის წრე: 120 ₾/თვე)!<br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ უფასო ვიზიტის დაჯავშნა →</a>`
+        }
+      ];
+    }
+  },
+
+  // 13. ჯგუფური რეგისტრაცია და სკოლები
   {
     id: "group_visits_schools",
     keywords: ["ჯგუფ", "ჯგუფურ", "სკოლ", "კლას", "ექსკურსი", "მოსწავლეებ", "ბაღ", "კოლექტივ", "რამდენი ბავშვი"],
     intents: ["ჯგუფური რეგისტრაცია", "სკოლის ექსკურსია", "კლასის ვიზიტი", "დაარეგისტრირეთ ჯგუფი", "ჯგუფური ვორქშოფი"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `დიახ! ერთდღიან ვორქშოფებზე გვაქვს <strong>ჯგუფური რეგისტრაცია</strong> (სკოლის კლასებისთვის, ექსკურსიებისთვის ან მეგობრების ჯგუფებისთვის <strong>2-დან 50 ბავშვამდე</strong>)!`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ჯგუფური ვიზიტისას ბავშვები ერთდროულად გადიან შემეცნებით, სახელოსნო და რობოტიკის ეტაპებს, თითოეულს თავისი შექმნილი ნივთი მიაქვს სახლში! რეგისტრაციისას უბრალოდ მონიშნეთ „დაარეგისტრირეთ ჯგუფი“ და მიუთითეთ ბავშვების რაოდენობა.`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "registration";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `დიახ! ერთდღიან ვორქშოფებზე გვაქვს <strong>ჯგუფური რეგისტრაცია</strong> (სკოლის კლასებისთვის, ექსკურსიებისთვის ან მეგობრების ჯგუფებისთვის <strong>2-დან მაქსიმუმ 15 ბავშვამდე</strong>)!`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ჯგუფური ვიზიტისას ბავშვები ერთდროულად გადიან შემეცნებით, სახელოსნო და რობოტიკის ეტაპებს, თითოეულს თავისი შექმნილი ნივთი მიაქვს სახლში! რეგისტრაციისას ფორმაში უბრალოდ მონიშნეთ „დაარეგისტრირეთ ჯგუფი“ და მიუთითეთ ბავშვების რაოდენობა (მაქს. 15).<br><a href="contact.html?type=group" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">👥 ჯგუფის რეგისტრაცია →</a>`
+        }
+      ];
+    }
   },
 
-  // 11. ფასები და გადახდა
+  // 14. ფასები და გადახდა
   {
     id: "pricing_payment",
-    keywords: ["ფას", "ღირს", "ღირებულებ", "გადახდ", "თანხ", "ტარიფ", "რამდენი ღირს"],
-    intents: ["რა ღირს", "რა არის ფასი", "სწავლის საფასური", "გადახდის პირობები"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `სახელოსნო „ფუსფუსაში“ საფასური მოქნილია სასწავლო ფორმატის მიხედვით (ერთდღიანი ვორქშოფი, 1-თვიანი ინტეგრირებული პროექტი თუ რობოტიკის ყოველთვიური წრე).`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `<strong>ყველაზე მთავარი:</strong> ყველა სამუშაო მასალა (ხე, თიხა, ფოლგა, ელექტრონიკა, micro:bit, Arduino, სენსორები, LED, ბრტყელი ელემენტები) სრულად შედის ღირებულებაში — დამატებით არაფრის შეძენა არ გჭირდებათ! დეტალური ტარიფებისთვის შეავსეთ <a href="contact.html#booking" style="color:var(--color-blue); font-weight:bold; text-decoration:underline;">რეგისტრაციის ფორმა</a> ან დაგვირეკეთ: <strong>+995 577 101 301</strong>.`
-      }
-    ]
+    keywords: ["ფას", "ღირს", "ღირებულებ", "გადახდ", "თანხ", "ტარიფ", "რამდენი ღირს", "საფასურ"],
+    intents: ["რა ღირს", "რა არის ფასი", "სწავლის საფასური", "გადახდის პირობები", "ტარიფები"],
+    respond: () => {
+      chatSessionContext.lastTopic = "pricing";
+      const pr = SITE_FACTS.pricing;
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნო „ფუსფუსაში“ საფასური მკაფიო და გამჭვირვალეა:<br>• ⚡ <strong>ერთდღიანი ვორქშოფები (1.5–2 სთ):</strong> <strong>${pr.workshop} ლარი</strong> (საახალწლო ბარათი, მოფუსფუსე პინგვინი ყინულზე, თიხის მანათობელი ეკო-ლამპიონი).<br>• 📅 <strong>1-თვიანი ინტეგრირებული პროექტები (4 კვირა, 8 შეხვედრა • 3 სთ):</strong> <strong>${pr.monthProject} ლარი</strong> („ფუსფუსა ფუტკრები“, „ყინულოვანი სამყარო“).<br>• 🤖 <strong>რობოტიკისა და კოდირების წრე:</strong> <strong>${pr.roboticsClub} ლარი / თვეში</strong> (ამ ეტაპზე მიღება დროებით შეჩერებულია).`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>ყველა სამუშაო მასალა (ხე, თიხა, ფოლგა, ელექტრონიკა, Micro:bit, Arduino, სენსორები, LED) სრულად შედის ფასში!</strong><br>• <strong>პირველი გაცნობითი ვიზიტი უფასოა!</strong><br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">📅 ადგილის დაჯავშნა →</a>`
+        }
+      ];
+    }
   },
 
-  // 12. ლოკაცია, მისამართი და სამუშაო საათები
+  // 15. ლოკაცია, მისამართი და კონტაქტები
   {
     id: "location_contacts",
-    keywords: ["სად", "მისამართ", "ლოკაცი", "რუსთავ", "ქუჩ", "ტელეფონ", "ნომერ", "მეილ", "სამუშაო საათ", "როდის მუშაობთ"],
-    intents: ["სად მდებარეობს სახელოსნო", "მისამართი", "საკონტაქტო ნომერი", "სამუშაო საათები", "როგორ მოვიდეთ"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `ჩვენი სახელოსნო მდებარეობს ქალაქ <strong>რუსთავში, რუსთაველის ქუჩაზე</strong> 📍.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• 📞 ტელეფონი: <strong>+995 577 101 301</strong><br>• ✉️ ელფოსტა: <strong>info@fusfusa.ge</strong><br>• 🕒 სამუშაო საათები:<br>— ორშაბათი – პარასკევი: 14:00 – 19:00<br>— შაბათი – კვირა: 11:00 – 18:00.`
-      }
-    ]
+    keywords: ["სად", "მისამართ", "ლოკაცი", "რუსთავ", "ქუჩ", "ტელეფონ", "ნომერ", "მეილ", "ფეისბუქ", "facebook", "youtube", "იუთუბ", "სოციალურ", "გვერდი"],
+    intents: ["სად მდებარეობს სახელოსნო", "მისამართი", "საკონტაქტო ნომერი", "როგორ მოვიდეთ", "ფეისბუქის გვერდი", "კონტაქტი"],
+    respond: () => {
+      chatSessionContext.lastTopic = "location";
+      const c = SITE_FACTS.contacts;
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენი სახელოსნო მდებარეობს ქალაქ <strong>${c.address}</strong> 📍 (<a href="${c.mapsUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue); text-decoration:underline;">Google Maps-ზე ნახვა 🗺️</a>).`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• 📞 ტელეფონი: <strong><a href="tel:${c.phone.replace(/\s+/g, '')}" style="color:inherit; text-decoration:none;">${c.phone}</a></strong><br>• ✉️ ელფოსტა: <strong>${c.email}</strong><br>• 🌐 Facebook: <strong><a href="${c.facebookUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue); text-decoration:underline;">ფუსფუსა Facebook გვერდი</a></strong><br>• 📺 YouTube: <strong><a href="${c.youtubeUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue); text-decoration:underline;">ფუსფუსა YouTube არხი</a></strong><br>• 🕒 სამუშაო საათები: ${c.hours}.`
+        }
+      ];
+    }
   },
 
-  // 13. მასალები და უსაფრთხოება
+  // 16. სამუშაო საათები და გრაფიკი
+  {
+    id: "working_hours",
+    keywords: ["სამუშაო საათ", "როდის მუშაობთ", "როდის ხართ ღია", "დასვენების დღე", "გრაფიკი"],
+    intents: ["სამუშაო საათები", "როდის მუშაობთ", "გრაფიკი"],
+    respond: () => {
+      chatSessionContext.lastTopic = "schedule";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნოს სამუშაო გრაფიკია:<br>• <strong>სამშაბათი – კვირა:</strong> 10:00 – 19:00<br>• <strong>ორშაბათი:</strong> დასვენების დღე.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ვიზიტამდე გირჩევთ წინასწარ შეავსოთ <a href="${SITE_FACTS.registration.url}" style="color:var(--color-blue); font-weight:bold; text-decoration:underline;">დაჯავშნის ფორმა</a> ან დაგვირეკოთ: <strong>${SITE_FACTS.contacts.phone}</strong>!`
+        }
+      ];
+    }
+  },
+
+  // 17. მასალები და უსაფრთხოება
   {
     id: "materials_and_safety",
     keywords: ["მასალ", "ხელსაწყო", "რა მოვიტანოთ", "თან მოტანა", "უსაფრთხოებ", "საშიშ", "წებო", "ხის ხელსაწყო"],
     intents: ["რა მასალებია საჭირო", "რა უნდა მოიტანოს ბავშვმა", "უსაფრთხოა თუ არა", "უსაფრთხოების წესები"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>ბავშვს თან არაფრის მოტანა არ სჭირდება!</strong> ყველა საჭირო ბუნებრივ მასალას (ხე, თიხა, საღებავები, მუყაო, ფოლგა) და უსაფრთხო ხელსაწყოს ჩვენ ადგილზე ვახვედრებთ.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ტექნოლოგიურ ნაწილშიც (Micro:bit, Arduino, სენსორები, მინი-ძრავები, კაბელები, ლეპტოპები) ყველაფერი უზრუნველყოფილია. ვიყენებთ მხოლოდ უსაფრთხო დაბალი ძაბვის ელექტრონიკას (3V–5V), პროცესი კი მენტორების მუდმივი მეთვალყურეობის ქვეშ მიმდინარეობს!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "materials";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `<strong>ბავშვს თან არაფრის მოტანა არ სჭირდება!</strong> ყველა საჭირო ბუნებრივ მასალას (ხე, თიხა, საღებავები, მუყაო, ფოლგა) და უსაფრთხო ხელსაწყოს ჩვენ ადგილზე ვახვედრებთ.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ტექნოლოგიურ ნაწილშიც (Micro:bit, Arduino, სენსორები, მინი-ძრავები, კაბელები, ლეპტოპები) ყველაფერი უზრუნველყოფილია. ვიყენებთ მხოლოდ უსაფრთხო დაბალი ძაბვის ელექტრონიკას (3V–5V), პროცესი კი მენტორების მუდმივი მეთვალყურეობის ქვეშ მიმდინარეობს!`
+        }
+      ];
+    }
   },
 
-  // 14. ფილოსოფია, მისია და სლოგანები
+  // 18. ფილოსოფია, მისია და სლოგანები
   {
     id: "philosophy_slogans",
     keywords: ["მისია", "ფილოსოფი", "სლოგან", "დევიზ", "ვუფრთხილდებით", "მოთამაშე", "შემოქმედ", "კონცეფცი"],
     intents: ["რა არის თქვენი მისია", "ჩვენი მისია", "სახელოსნოს სლოგანი", "გუშინ მოთამაშე დღეს შემოქმედი", "ვუფრთხილდებით ვზრუნავთ ვქმნით"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `სახელოსნო „ფუსფუსას“ მთავარი დევიზია: <strong>„ვუფრთხილდებით, ვზრუნავთ, ვქმნით“</strong> 🌿 — ვასწავლით ბუნების მოფრთხილებას, ერთმანეთზე ზრუნვას და ახლის შექმნას.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ჩვენი მისიაა: <strong>„გუშინ მოთამაშე — დღეს შემოქმედი“</strong> ✨ — ბავშვი ეკრანის პასიური მომხმარებლიდან გარდაიქმნება შემოქმედად, რომელიც ციფრულ ცოდნას რეალური სამყაროს გასაუმჯობესებლად იყენებს!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "philosophy";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნო „ფუსფუსას“ მთავარი დევიზია: <strong>„${SITE_FACTS.slogans.primary}“</strong> 🌿 — ვასწავლით ბუნების მოფრთხილებას, ერთმანეთზე ზრუნვას და ახლის შექმნას.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ჩვენი მისიაა: <strong>„${SITE_FACTS.slogans.mission}“</strong> ✨ — ბავშვი ეკრანის პასიური მომხმარებლიდან გარდაიქმნება შემოქმედად, რომელიც ციფრულ ცოდნას რეალური სამყაროს გასაუმჯობესებლად იყენებს!`
+        }
+      ];
+    }
   },
 
-  // 15. შეცდომებთან დამოკიდებულება
+  // 19. შეცდომებთან დამოკიდებულება
   {
     id: "mistakes_approach",
     keywords: ["შეცდომ", "ბაგ", "შეცდომა საუკეთესო", "არ გამომივიდეს", "თუ გაფუჭდა"],
     intents: ["შეცდომა არ ისჯება", "როგორ უდგებით შეცდომებს", "თუ ბავშვს არ გამოუვა"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `ჩვენთან მთავარი წესია: <strong>„შეცდომა არ ისჯება — შეცდომა საუკეთესო მასწავლებელია!“ 💡</strong>`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `გატეხილი ხის დეტალი თუ „ბაგი“ კოდში საუკეთესო შესაძლებლობაა კრიტიკული აზროვნებისა და პრობლემის დამოუკიდებლად გადაჭრისთვის. ბავშვები სწავლობენ, რომ შეცდომა ძიების ბუნებრივი ეტაპია!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "philosophy";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენთან მთავარი წესია: <strong>„შეცდომა არ ისჯება — შეცდომა საუკეთესო მასწავლებელია!“ 💡</strong>`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `გატეხილი ხის დეტალი თუ „ბაგი“ კოდში საუკეთესო შესაძლებლობაა კრიტიკული აზროვნებისა და პრობლემის დამოუკიდებლად გადაჭრისთვის. ბავშვები სწავლობენ, რომ შეცდომა ძიების ბუნებრივი ეტაპია!`
+        }
+      ];
+    }
   },
 
-  // 16. რა უნარებს ავითარებს
+  // 20. ჯანსაღი ციფრული ჩვევები და კიბერ-ჰიგიენა
+  {
+    id: "digital_habits",
+    keywords: ["ეკრან", "ტელეფონ", "დამოკიდებულებ", "თამაშ", "ტიკტოკ", "ჰიგიენ", "ჩვევებ", "პასიურ"],
+    intents: ["ჯანსაღი ციფრული ჩვევები", "ეკრანდამოკიდებულება", "კიბერ ჰიგიენა"],
+    respond: () => {
+      chatSessionContext.lastTopic = "philosophy";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენ ვეხმარებით ბავშვებს ეკრანის უსასრულო სქროლიდან გადავიდნენ რეალურ, ხელშესახებ შემოქმედებაზე — მუშაობა ბუნებრივ ხესთან, თიხასა და ცოცხალ მცენარეებთან!`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `როდესაც ბავშვი იგებს, როგორ მუშაობს ალგორითმები შიგნიდან, ის აღარ არის პასიური მსხვერპლი: სწავლობს ეკრანული დროის მართვას, კიბერ-ჰიგიენას და ტექნოლოგიას საკუთარი იდეების გასაცოცხლებლად იყენებს!`
+        }
+      ];
+    }
+  },
+
+  // 21. რა უნარებს ავითარებს
   {
     id: "skills_development",
     keywords: ["უნარ", "რას განავითარებს", "რას ისწავლის", "მოტორიკ", "აზროვნებ", "გუნდურობ", "სარგებელ"],
     intents: ["რა უნარებს უვითარებს", "რას ისწავლის ბავშვი", "რა სარგებელი აქვს"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `„ფუსფუსა დედამიწის“ ხაზით ბავშვები ავითარებენ: <strong>სისტემურ აზროვნებას</strong>, <strong>ნატიფ მოტორიკასა და სიზუსტეს</strong>, ინფორმაციასთან მუშაობის ჩვევას და <strong>თვითგამოხატვის თავისუფლებას</strong>.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `„ფუსფუსა ტექნოლოგიების“ ხაზით კი: <strong>ალგორითმულ და ლოგიკურ აზროვნებას</strong>, პრობლემის სტრუქტურულ გადაჭრას, <strong>ტექნოლოგიურ თავდაჯერებულობას</strong> და <strong>ჯანსაღ ციფრულ ჩვევებს</strong> (კიბერ-ჰიგიენას)!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "skills";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `„ფუსფუსა დედამიწის“ ხაზით ბავშვები ავითარებენ: <strong>სისტემურ აზროვნებას</strong>, <strong>ნატიფ მოტორიკასა და სიზუსტეს</strong>, ინფორმაციასთან მუშაობის ჩვევას და <strong>თვითგამოხატვის თავისუფლებას</strong>.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `„ფუსფუსა ტექნოლოგიების“ ხაზით კი: <strong>ალგორითმულ და ლოგიკურ აზროვნებას</strong>, პრობლემის სტრუქტურულ გადაჭრას, <strong>ტექნოლოგიურ თავდაჯერებულობას</strong> და <strong>გუნდურ მუშაობას</strong>!`
+        }
+      ];
+    }
   },
 
-  // 17. ფორმატების შედარება
+  // 22. ფორმატების შედარება
   {
     id: "formats_comparison",
     keywords: ["ფორმატ", "განსხვავებ", "რა განსხვავებაა", "რომელი ავირჩიო", "ვორქშოფსა და პროექტს"],
     intents: ["რა ფორმატები გაქვთ", "ფორმატების შედარება", "რა განსხვავებაა პროექტსა და ვორქშოფს შორის"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `სახელოსნოში გვაქვს <strong>3 ძირითადი ფორმატი</strong>:<br>1. <strong>⚡ ერთდღიანი ვორქშოფი (1.5–2 სთ):</strong> იდეალურია პირველი გაცნობისთვის — ბავშვი ერთ შეხვედრაში ქმნის დასრულებულ ინტერაქტიულ ნივთს (მაგ: 🐧 მოფუსფუსე პინგვინი ან 🎄 საახალწლო ბარათი).<br>2. <strong>📅 1-თვიანი ინტეგრირებული პროექტი (3–4 კვირა • 3 სთ შეხვედრა):</strong> სიღრმისეული შემეცნება, დიდი მაკეტის აწყობა, რობოტიკა და საზეიმო ფინალური გამოფენა მშობლებთან ერთად („ყინულოვანი სამყარო“ ❄️, „ფუსფუსა ფუტკრები“ 🐝).`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `3. <strong>🤖 რობოტიკისა და კოდირების წრე:</strong> უწყვეტი ყოველკვირეული პროგრამა საფუძვლიანი საინჟინრო და პროგრამირების ცოდნისთვის (MakeCode, Scratch, Micro:bit, Arduino, Python).`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "formats";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნოში გვაქვს <strong>3 ძირითადი ფორმატი</strong>:<br>1. <strong>⚡ ერთდღიანი ვორქშოფი (1.5–2 სთ • 50 ₾):</strong> იდეალურია პირველი გაცნობისთვის — ბავშვი 1 შეხვედრაში ქმნის დასრულებულ ინტერაქტიულ ნივთს (მაგ: 🐧 მოფუსფუსე პინგვინი, 🎄 საახალწლო ბარათი, 🕯️ თიხის ლამპიონი).<br>2. <strong>📅 1-თვიანი ინტეგრირებული პროექტი (4 კვირა, 8 შეხვედრა • 3 სთ • 200 ₾):</strong> სიღრმისეული შემეცნება, დიდი მაკეტის აწყობა, რობოტიკა და საზეიმო ფინალური გამოფენა მშობლებთან ერთად („ყინულოვანი სამყარო“ ❄️, „ფუსფუსა ფუტკრები“ 🐝).`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `3. <strong>🤖 რობოტიკისა და კოდირების წრე (120 ₾/თვე):</strong> უწყვეტი ყოველკვირეული პროგრამა საფუძვლიანი საინჟინრო და პროგრამირების ცოდნისთვის (MakeCode, Scratch, Micro:bit, Arduino, Python).`
+        }
+      ];
+    }
   },
 
-  // 18. მოსწავლეთა ნამუშევრები და გალერეა
+  // 23. მოსწავლეთა ნამუშევრები და გალერეა (Showcase)
   {
     id: "showcase_gallery",
-    keywords: ["ნამუშევრებ", "გალერე", "რას ქმნიან", "გამოფენ", "პროტოტიპ", "რა მიაქვს სახლში"],
+    keywords: ["ნამუშევრებ", "გალერე", "რას ქმნიან", "გამოფენ", "პროტოტიპ", "რა მიაქვს სახლში", "ანა", "სანდრო", "დათო", "ნიკა", "ლუკა"],
     intents: ["რას ქმნიან ბავშვები", "მოსწავლეთა ნამუშევრები", "გამოფენა", "ნამუშევრების გალერეა"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `ჩვენი მოსწავლეები ქმნიან ნამდვილ ფუნქციურ ნივთებს: ხის მოძრავ მექანიზმებს, თიხის მანათობელ ლამპიონებს, პოლარულ ბაზებსა და ეკო-მაკეტებს.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ტექნოლოგიურად კი აწყობენ: AI ეკო-დეტექტორებს (მცენარის მდგომარეობის ამომცნობი), 2D ციფრულ ანიმაციებს, ჭკვიან თვით-მორწყავ რობოტებსა და ვიბრო-პინგვინებს! ყოველი შექმნილი ნივთი ბავშვს სახლში მიაქვს!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "showcase";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენი მოსწავლეები ქმნიან რეალურ ფუნქციურ ნივთებს:<br>• <strong>ნიკა & ლუკა (11 წლის):</strong> კონტეინერი ხის მოძრავი ამწე-ექსკავატორი პიროგრაფიით.<br>• <strong>სანდრო (8 წლის):</strong> „მფრინავი ფუტკურა“ — საკუთარი ნახატის ციფრული 2D ანიმაცია და ხმოვანი ეფექტები.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>ანა (10 წლის):</strong> „მცენარეთა ჭკვიანი ეკო-დეტექტორი“ (Teachable Machine-ით გაწვრთნილი AI ნეირონული ქსელი).<br>• <strong>დათო (12 წლის):</strong> Arduino-ზე დაპროგრამებული თვით-მორწყავი რობოტი ნიადაგის ტენიანობის სენსორით!<br><a href="showcase.html" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">🎨 გალერეის დათვალიერება →</a>`
+        }
+      ];
+    }
   },
 
-  // 19. პირველი დღე და ადაპტაცია
+  // 24. მომავალი პროექტები (Upcoming Projects)
+  {
+    id: "upcoming_projects",
+    keywords: ["მომავალ", "სამომავლ", "მალე", "ახალ პროექტ", "დაემატებ", "სათბურ", "წყალქვეშ", "კოსმოსურ"],
+    intents: ["მომავალი პროექტები", "სამომავლო პროექტები", "რა სამომავლო პროექტები", "რა პროექტები დაემატება", "ჭკვიანი სათბური", "წყალქვეშა რობოტები"],
+    respond: () => {
+      chatSessionContext.lastTopic = "upcoming";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენი სახელოსნო ეტაპობრივად ვითარდება და მალე წარმოვადგენთ ახალ ინტეგრირებულ პროექტებს:<br>• <strong>🌱 ჭკვიანი სათბური (Smart Greenhouse)</strong> — მცენარეთა ავტომატური კლიმატ-კონტროლი და მიკრო-ეკოლოგია.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>🌊 წყალქვეშა სამყაროს რობოტები</strong> — ოკეანის სიღრმეების კვლევა და წყალგამძლე სენსორები.<br>• <strong>🪐 კოსმოსური სადგური & ხელოვნური ინტელექტი</strong> — ავტონომიური როვერები და AI მოდელები!`
+        }
+      ];
+    }
+  },
+
+  // 25. პირველი დღე და ადაპტაცია
   {
     id: "first_day_experience",
     keywords: ["პირველ დღე", "პირველ გაკვეთილ", "საცდელ", "გაცნობ", "ადაპტაცი", "ეშინია", "პირველად"],
     intents: ["პირველი დღე სახელოსნოში", "საცდელი ვიზიტი", "როგორ ხვდებით ბავშვებს"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `პირველი შეხვედრა სრულიად მეგობრულია და თავისუფალია ყოველგვარი სტრესისგან! ბავშვი ეცნობა სახელოსნოს გარემოს, ხელსაწყოებს და ირმა მასწავლებელს.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `შემდეგ კი ზიკა მასწავლებელთან ერთად ეცნობა რობოტიკის ლაბორატორიას და პირველად გამოსცდის სენსორებისა და მიკრობიტის მუშაობას. პირველივე დღიდან ბავშვს უჩნდება საკუთარი შემოქმედებითი ძალის რწმენა!`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "first_day";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `პირველი შეხვედრა სრულიად მეგობრულია და თავისუფალია ყოველგვარი სტრესისგან! <strong>პირველი გაცნობითი ვიზიტი უფასოა.</strong> ბავშვი ეცნობა სახელოსნოს გარემოს, ხელსაწყოებს და ირმა მასწავლებელს.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `შემდეგ კი ზიკა მასწავლებელთან ერთად ეცნობა რობოტიკის ლაბორატორიას და პირველად გამოსცდის სენსორებისა და მიკრობიტის მუშაობას. პირველივე დღიდან ბავშვს უჩნდება საკუთარი შემოქმედებითი ძალის რწმენა!`
+        }
+      ];
+    }
   },
 
-  // 20. მისალმება და მადლობა
+  // 26. მისალმება და მადლობა
   {
     id: "greetings_welcome",
     keywords: ["გამარჯობ", "სალამ", "გამარჯობა", "მოგესალმებით", "როგორ ხართ", "ვინ ხართ", "მადლობ", "გმადლობთ", "მაგარია"],
     intents: ["გამარჯობა", "სალამი", "როგორ ხართ", "მადლობა", "ვინ ხართ თქვენ"],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `გამარჯობა! მე ვარ ეკო 🌿 — დაგეხმარებით ხის ოსტატობაზე, თიხაზე, ეკო-დიზაინსა და ბუნებრივ სისტემებზე.`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ხოლო მე ვარ ბიტი 💻 — გიპასუხებთ რობოტიკაზე, კოდინგზე, AI-ზე, ასაკობრივ ჯგუფებსა და რეგისტრაციაზე! რით შეგვიძლია დაგეხმაროთ? ✨`
+    respond: (normQuery) => {
+      if (normQuery.includes("მადლობ") || normQuery.includes("გმადლობ")) {
+        return [
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `არაფრის! ყოველთვის გელოდებით ჩვენს სახელოსნოში დიდი სიყვარულით 🌿`
+          },
+          {
+            type: "tech",
+            author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+            text: `თუ სხვა რამე გაინტერესებთ, სიამოვნებით გიპასუხებთ! ✨`
+          }
+        ];
       }
-    ]
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `გამარჯობა! მე ვარ ეკო 🌿 — დაგეხმარებით ხის ოსტატობაზე, თიხაზე, ეკო-დიზაინსა და ბუნებრივ სისტემებზე.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `ხოლო მე ვარ ბიტი 💻 — გიპასუხებთ რობოტიკაზე, კოდინგზე, AI-ზე, ასაკობრივ ჯგუფებსა და რეგისტრაციაზე! რით შეგვიძლია დაგეხმაროთ? ✨`
+        }
+      ];
+    }
   },
 
-  // 21. ასაკობრივი ჯგუფები / რა ასაკიდან მიიღება ბავშვი
+  // 27. ასაკობრივი ჯგუფები / რა ასაკიდან მიიღება ბავშვი (General Query)
   {
     id: "age_groups_general",
     keywords: [
@@ -1849,70 +2479,108 @@ const FUSFUSA_SITE_KNOWLEDGE = [
       "რა ასაკიდან", "მინიმალური ასაკი", "ასაკის"
     ],
     intents: [
-      "რა ასაკიდან შემიძლია ბავშვის მოყვანა",
-      "რა ასაკიდან იღებთ ბავშვებს",
-      "რა ასაკობრივი ჯგუფები გაქვთ",
-      "რა ასაკის ბავშვებისთვისაა",
-      "რამდენი წლიდან შეიძლება მოსვლა",
-      "მინიმალური ასაკი",
-      "ასაკობრივი ზღვარი",
-      "რა ასაკიდანაა"
+      "რა ასაკიდან შემიძლია ბავშვის მოყვანა", "რა ასაკიდან იღებთ ბავშვებს",
+      "რა ასაკობრივი ჯგუფები გაქვთ", "რა ასაკის ბავშვებისთვისაა",
+      "რამდენი წლიდან შეიძლება მოსვლა", "მინიმალური ასაკი", "რა ასაკიდანაა"
     ],
-    respond: () => [
-      {
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `სახელოსნო „ფუსფუსაში“ ბავშვების მიღება იწყება <strong>6 წლიდან</strong> და პროგრამები გათვლილია <strong>15 წლამდე</strong> მოზარდებისთვის!<br>სასწავლო მიმართულებები დაყოფილია ასაკობრივ საფეხურებად:<br>• <strong>6–8 წელი (უმცროსი ასაკი):</strong> ერთდღიანი სახალისო ვორქშოფები (🐧 „მოფუსფუსე პინგვინი ყინულზე“, 🎄 „მანათობელი საახალწლო ბარათი“, 🏮 „თიხის ლამპიონი“) და ვიზუალური პროგრამირება (Scratch Jr).`
-      },
-      {
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `• <strong>8–12 წელი (საშუალო ასაკი):</strong> 1-თვიანი ინტეგრირებული პროექტები (❄️ „ყინულოვანი სამყარო“, 🐝 „ფუსფუსა ფუტკრები“) 3-საათიანი მოდელით და რობოტიკის წრე (Micro:bit & სენსორები).<br>• <strong>12–15 წელი (უფროსი ასაკი):</strong> რობოტიკა და ელექტრონიკა (Arduino, Python, რთული სქემები).<br>თუ თქვენი ბავშვის კონკრეტულ ასაკს გვეტყვით, სიამოვნებით შეგირჩევთ საუკეთესო ჯგუფს! 😊`
-      }
-    ]
+    respond: () => {
+      chatSessionContext.lastTopic = "age";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `სახელოსნო „ფუსფუსაში“ ბავშვების მიღება იწყება <strong>${SITE_FACTS.ageRange.min} წლიდან</strong> და პროგრამები გათვლილია <strong>${SITE_FACTS.ageRange.max} წლამდე</strong> მოზარდებისთვის!<br>• <strong>6–8 წელი:</strong> ერთდღიანი ვორქშოფები (🎄 ბარათი, 🐧 პინგვინი, 🕯️ თიხის ლამპიონი).`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `• <strong>8–12 წელი:</strong> 1-თვიანი ინტეგრირებული პროექტები (❄️ „ყინულოვანი სამყარო“, 🐝 „ფუსფუსა ფუტკრები“) 3-საათიანი მოდელით და რობოტიკის წრე.<br>• <strong>12–15 წელი:</strong> რობოტიკა და ელექტრონიკა (Arduino, Python, რთული სენსორები).<br>თუ თქვენი ბავშვის კონკრეტულ ასაკს მოგვწერთ (მაგ. „8 წლის“), შემოგთავაზებთ ზუსტ პროგრამებს! 😊`
+        }
+      ];
+    }
   },
 
-  // 22. პროექტების სრული ჩამონათვალი და მიმოხილვა
+  // 28. პროექტებისა და კურსების სრული ჩამონათვალი
   {
     id: "all_projects_overview",
     keywords: ["პროექტებ", "კურსებ", "რა პროექტები გაქვთ", "რა პროექტებია", "პროგრამებ", "მიმდინარე პროექტებ"],
-    intents: [
-      "რა პროექტები გაქვთ",
-      "პროექტების ჩამონათვალი",
-      "რომელი პროექტები გაქვთ",
-      "რა პროექტებს ატარებთ",
-      "მიმდინარე პროექტები",
-      "რა კურსები გაქვთ"
-    ],
-    respond: () => [
+    intents: ["რა პროექტები გაქვთ", "პროექტების ჩამონათვალი", "რომელი პროექტები გაქვთ", "რა კურსები გაქვთ"],
+    respond: () => {
+      chatSessionContext.lastTopic = "courses";
+      return [
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენს სახელოსნოში მოქმედებს 2 ძირითადი ფორმატი:<br>1. <strong>📅 1-თვიანი ინტეგრირებული პროექტები (200 ₾):</strong><br>• ❄️ „ყინულოვანი სამყარო“ (8–14 წელი)<br>• 🐝 „ფუსფუსა ფუტკრები“ (8–12 წელი)`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `2. <strong>⚡ ერთდღიანი ვორქშოფები (50 ₾):</strong><br>• 🐧 „მოფუსფუსე პინგვინი ყინულზე“ (7–10 წელი)<br>• 🎄 „მანათობელი საახალწლო ბარათი“ (6–14 წელი)<br>• 🕯️ „თიხის მანათობელი ეკო-ლამპიონი“ (6–12 წელი)<br><em>(რობოტიკისა და კოდირების წრეზე მიღება დროებით შეჩერებულია).</em>`
+        }
+      ];
+    }
+  }
+];
+
+// დამხმარე ფუნქცია ასაკის მიხედვით პროგრამების მოსაძებნად
+function getProgramsForAge(age) {
+  const matches = [];
+  for (const key of Object.keys(SITE_FACTS.programs)) {
+    const p = SITE_FACTS.programs[key];
+    if (age >= p.ageMin && age <= p.ageMax) {
+      matches.push(p);
+    }
+  }
+  return matches;
+}
+
+// 5. ძირითადი ინტელექტუალური პასუხების გენერატორი
+function generateFussusaAiAnswers(rawQuery) {
+  const normQuery = normalizeGeorgian(rawQuery);
+  if (!normQuery) {
+    return [
       {
         type: "earth",
         author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `ჩვენს სახელოსნოში ამჟამად მოქმედებს:<br>• ❄️ <strong>„ყინულოვანი სამყარო“</strong> (1-თვიანი ინტეგრირებული პროექტი • 4 კვირა, 8 შეხვედრა • დღეში 3 სთ) — პოლარული ბაზა, იგლუები, ყინულმჭრელი გემი, ცხოველების გამოძერწვა და Micro:bit ტემპერატურის კონტროლი!<br>• 🐝 <strong>„ფუსფუსა ფუტკრები“</strong> (1-თვიანი პროექტი • 3 კვირა, 6 შეხვედრა • დღეში 3 სთ) — ხის სკა, მცენარეების დარგვა, ნიადაგის ტენიანობის სენსორი და ანიმაცია.`
+        text: "გთხოვთ, მოგვწეროთ თქვენი შეკითხვა სახელოსნოს, კურსების ან რობოტიკის შესახებ ✨"
+      }
+    ];
+  }
+
+  // 1. პერსონალური მონაცემების დაცვა
+  if (containsPersonalData(rawQuery, normQuery)) {
+    return [
+      {
+        type: "tech",
+        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+        text: `თქვენი და თქვენი შვილის უსაფრთხოებისთვის, გთხოვთ ნუ გააზიარებთ პირად მონაცემებს (ტელეფონის ნომერს, პირად ნომერს) ჩატში! რეგისტრაციისთვის ისარგებლეთ ჩვენი დაცული ფორმით: <a href="${SITE_FACTS.registration.url}" style="color:var(--color-blue); font-weight:bold; text-decoration:underline;">ონლაინ რეგისტრაცია</a>.`
+      }
+    ];
+  }
+
+  // 2. არათემატური შეკითხვების ფილტრი (OutOfScope Guard)
+  if (isOutOfScope(normQuery)) {
+    return [
+      {
+        type: "earth",
+        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+        text: `მე სახელოსნო ფუსფუსას ასისტენტი ვარ და შემიძლია დაგეხმაროთ მხოლოდ სახელოსნოს კურსებთან, რობოტიკასთან, ბუნებისმეტყველებასთან და რეგისტრაციასთან დაკავშირებულ საკითხებში 😊`
       },
       {
         type: "tech",
         author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ასევე გვაქვს:<br>• ⚡ <strong>ერთდღიანი ვორქშოფები (1.5–2 სთ):</strong> 🐧 „მოფუსფუსე პინგვინი ყინულზე“, 🎄 „მანათობელი საახალწლო ბარათი“, 🏮 „თიხის მანათობელი ეკო-ლამპიონი“.<br>• 🤖 <strong>რობოტიკისა და კოდირების წრე:</strong> ყოველკვირეული პრაქტიკული მეცადინეობები (MakeCode, Scratch, Micro:bit, Arduino, Python)!`
+        text: `შეგიძლიათ მკითხოთ: კურსების ფასები, ასაკობრივი ჯგუფები, ჩვენი მისია ან ლოკაცია!
+        <div class="ai-quick-prompts">
+          <button class="ai-prompt-btn" data-query="რა ღირს სწავლა და ვორქშოფები?">💰 რა ღირს სწავლა?</button>
+          <button class="ai-prompt-btn" data-query="სად მდებარეობს სახელოსნო?">📍 სად მდებარეობს სახელოსნო?</button>
+          <button class="ai-prompt-btn" data-query="რა ასაკის ბავშვებისთვისაა?">👧 ასაკობრივი ჯგუფები</button>
+        </div>`
       }
-    ]
+    ];
   }
-];
 
-/**
- * Intelligent Knowledge Matching Engine in Georgian
- * Automatically routes answers to Eko 🌿, Biti 💻, or both as a duo.
- */
-function generateFussusaAiAnswers(rawQuery) {
-  const normQuery = normalizeGeorgian(rawQuery);
-  let results = [];
-
-  const queryWords = normQuery.split(" ").filter(w => w.length > 1);
-  const queryStems = [];
-  queryWords.forEach(w => {
-    getGeorgianStems(w).forEach(s => queryStems.push(s));
-  });
-
+  // 3. მიმართვის ფილტრი (მხოლოდ ეკო ან მხოლოდ ბიტი)
   const asksOnlyEarth = (normQuery.includes("ეკო") || normQuery.includes("ეკოს")) && !normQuery.includes("ბიტ");
   const asksOnlyTech = (normQuery.includes("ბიტ") || normQuery.includes("ბიტის")) && !normQuery.includes("ეკო");
 
@@ -1929,84 +2597,322 @@ function generateFussusaAiAnswers(rawQuery) {
     return res;
   };
 
-  // 1. Direct Specific Child Age Inquiries (e.g., "7 წლისაა", "ჩემი შვილი არის 10 წლის")
-  const ageMatch = rawQuery.match(/\b([4-9]|1[0-7])\b/);
-  const age = ageMatch ? parseInt(ageMatch[1], 10) : null;
-  const isGeneralAgeQuery = normQuery.includes("რა ასაკიდან") || normQuery.includes("რამდენი წლიდან") || normQuery.includes("ასაკობრივი ჯგუფ") || normQuery.includes("მინიმალური ასაკ") || normQuery.includes("ასაკობრივი ზღვარ");
+  // 4. ასაკობრივი მოთხოვნის დამუშავება (სიტყვიერი, ციფრული, მრავალი ბავშვი)
+  const isGeneralAgeQuery = normQuery.includes("რა ასაკიდან") || normQuery.includes("რამდენი წლიდან") ||
+                            normQuery.includes("ასაკობრივი ჯგუფ") || normQuery.includes("მინიმალური ასაკ") ||
+                            normQuery.includes("ასაკობრივი ზღვარ") || normQuery.includes("რა ასაკის");
 
-  if (age !== null && !isGeneralAgeQuery && (normQuery.includes("წლის") || normQuery.includes("წლისაა") || normQuery.includes("შვილი") || normQuery.includes("ბავშვ") || normQuery.length < 15)) {
-    if (age <= 8) {
-      results.push({
+  const extractedAges = extractAgesFromText(rawQuery);
+
+  if (extractedAges.length > 0 && !isGeneralAgeQuery) {
+    chatSessionContext.knownChildAges = extractedAges;
+    chatSessionContext.lastTopic = "age_recommendation";
+
+    // მრავალი ბავშვი (მაგ. "ორი შვილი მყავს, 6 და 11 წლის")
+    if (extractedAges.length > 1) {
+      const earthParts = [];
+      const techParts = [];
+
+      extractedAges.forEach((a, idx) => {
+        const matching = getProgramsForAge(a);
+        const wNames = matching.filter(p => p.category === "workshop").map(p => `${p.emoji} ${p.title}`).join(", ");
+        const pNames = matching.filter(p => p.category === "project").map(p => `${p.emoji} ${p.title}`).join(", ");
+        const hasClub = matching.some(p => p.category === "club");
+
+        const text = `<strong>👶 ${a} წლის შვილისთვის:</strong><br>` +
+          (wNames ? `• ვორქშოფები (50 ₾): ${wNames}<br>` : "") +
+          (pNames ? `• 1-თვიანი პროექტები (200 ₾): ${pNames}<br>` : "") +
+          (hasClub ? `• 🤖 რობოტიკისა და კოდირების წრე (120 ₾/თვე)` : "");
+
+        if (idx === 0) earthParts.push(text);
+        else techParts.push(text);
+      });
+
+      return filterByTarget([
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: earthParts.join("<br><br>")
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: (techParts.length ? techParts.join("<br><br>") : "") +
+            `<br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ბავშვების რეგისტრაცია →</a>`
+        }
+      ]);
+    }
+
+    // ერთი ბავშვი (მაგ. "7 წლის", "ჩემი შვილი არის 10 წლის")
+    const age = extractedAges[0];
+    const matching = getProgramsForAge(age);
+
+    if (matching.length === 0) {
+      return filterByTarget([
+        {
+          type: "earth",
+          author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+          text: `ჩვენი სახელოსნოს პროგრამები განკუთვნილია <strong>6-დან 15 წლამდე</strong> ასაკის ბავშვებისთვის.`
+        },
+        {
+          type: "tech",
+          author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+          text: `თუ თქვენი პატარა ჯერ 6 წელზე უმცროსია, სიამოვნებით დაგელოდებით, როგორც კი 6 წლის გახდება! 🌟`
+        }
+      ]);
+    }
+
+    const workshops = matching.filter(p => p.category === "workshop");
+    const projects = matching.filter(p => p.category === "project");
+    const club = matching.find(p => p.category === "club");
+
+    let earthMsg = `<strong>${age} წლის ბავშვისთვის</strong> იდეალურად შეეფერება:<br>`;
+    if (workshops.length > 0) {
+      earthMsg += `• ⚡ <strong>ერთდღიანი ვორქშოფები (50 ₾):</strong> ${workshops.map(w => `${w.emoji} „${w.title}“ (${w.duration})`).join("; ")}.<br>`;
+    }
+    if (projects.length > 0) {
+      earthMsg += `• 📅 <strong>1-თვიანი პროექტები (200 ₾):</strong> ${projects.map(pr => `${pr.emoji} „${pr.title}“`).join("; ")}.`;
+    }
+
+    let techMsg = "";
+    if (club) {
+      techMsg += `• 🤖 <strong>${club.title} (120 ₾ / თვეში):</strong> (ამ ეტაპზე მიღება დროებით შეჩერებულია; რობოტიკა და Micro:bit სრულად ისწავლება 1-თვიან პროექტებში).<br>`;
+    }
+    techMsg += `• <strong>${SITE_FACTS.registration.trialFreeNote}</strong><br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ უფასო ვიზიტის დაჯავშნა →</a>`;
+
+    return filterByTarget([
+      {
         type: "earth",
         author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>${age} წლის ბავშვისთვის</strong> იდეალურია ჩვენი <strong>ერთ დღიანი ვორქშოფები</strong> (მაგ: 🐧 „მოფუსფუსე პინგვინი ყინულზე“ ან 🎄 „მანათობელი საახალწლო ბარათი“) — ბავშვი 1.5–2 საათში ქმნის საკუთარ ინტერაქტიულ ნივთს!`
-      });
-      results.push({
+        text: earthMsg
+      },
+      {
         type: "tech",
         author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ასევე შეუძლიათ შემოგვიერთდნენ <strong>რობოტიკის წრის საწყის მოდულში</strong> (ბლოკური ვიზუალური პროგრამირება MakeCode & Scratch Jr.)!`
-      });
-      return filterByTarget(results);
-    } else if (age && age <= 12) {
-      results.push({
-        type: "earth",
-        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-        text: `<strong>${age} წლის ბავშვისთვის</strong> გვაქვს ორი გრანდიოზული ინტეგრირებული პროექტი:<br>• ❄️ <strong>„ყინულოვანი სამყარო“</strong> (4 კვირა, 8 შეხვედრა • 3 სთ) — პოლარული ბაზა, იგლუები, Micro:bit-ით ტემპერატურის მონიტორინგი და მოფუსფუსე ვიბრო-პინგვინები!<br>• 🐝 <strong>„ფუსფუსა ფუტკრები“</strong> (3 კვირა, 6 შეხვედრა • 3 სთ) — სკების მაკეტები, მცენარეების დარგვა, ნიადაგის ტენიანობის სენსორი და ციფრული ანიმაცია.`
-      });
-      results.push({
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `ხოლო რეგულარული განვითარებისთვის იდეალურია <strong>რობოტიკისა და კოდირების წრე</strong> (Micro:bit, Arduino, სენსორები & ეკო-ტექნოლოგიური სინთეზი)!`
-      });
-      return filterByTarget(results);
-    } else if (age && age >= 13) {
-      results.push({
-        type: "tech",
-        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-        text: `<strong>${age} წლის მოზარდებისთვის</strong>:<br>• <strong>რობოტიკისა და კოდირების წრე</strong> — Arduino და ელექტრონიკა, რთული სენსორები, სერვო ძრავები და ავტომატიზაცია.<br>• <strong>1-თვიანი ინტეგრირებული პროექტი „ყინულოვანი სამყარო“ ❄️</strong> — პოლარული ეკოსისტემების კვლევა, კომპლექსური მაკეტები, Micro:bit-ით ტემპერატურის მონიტორინგი და სტოპ-მოუშენ ანიმაცია!`
-      });
-      return filterByTarget(results);
+        text: techMsg
+      }
+    ]);
+  }
+
+  // 5. კონტექსტური კითხვების დამუშავება (დამოკიდებული წინა თემაზე)
+  const isContextualPrice = normQuery === "და ფასი" || normQuery === "ხოლო ფასი" || normQuery === "რა ღირს" || normQuery === "ფასი" || normQuery === "რამდენია";
+  const isContextualAge = normQuery === "რა ასაკისთვისაა" || normQuery === "რა ასაკიდანაა" || normQuery === "ასაკი" || normQuery === "რა ასაკის";
+  const isContextualDuration = normQuery === "რამდენ ხანს გრძელდება" || normQuery === "ხანგრძლივობა" || normQuery === "რა გრაფიკია";
+  const isContextualLocation = normQuery === "სად ტარდება" || normQuery === "სად";
+  const isContextualMaterials = normQuery === "რა მასალები სჭირდება" || normQuery === "რა მასალებია საჭირო";
+
+  if ((isContextualPrice || isContextualAge || isContextualDuration || isContextualLocation || isContextualMaterials) && chatSessionContext.lastProgramId) {
+    const prog = SITE_FACTS.programs[chatSessionContext.lastProgramId];
+    if (prog) {
+      if (isContextualPrice) {
+        return filterByTarget([
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `<strong>${prog.emoji} „${prog.title}“-ს საფასურია ${prog.price} ლარი${prog.category === "club" ? " / თვეში" : ""}.</strong>`
+          },
+          {
+            type: "tech",
+            author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+            text: `ყველა საჭირო მასალა სრულად შედის ღირებულებაში!<br><a href="contact.html?course=${prog.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ ადგილის დაჯავშნა →</a>`
+          }
+        ]);
+      }
+      if (isContextualAge) {
+        return filterByTarget([
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `<strong>${prog.emoji} „${prog.title}“</strong> გათვლილია <strong>${prog.ageMin}–${prog.ageMax} წლის</strong> ასაკის ბავშვებისთვის.`
+          },
+          {
+            type: "tech",
+            author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+            text: `ჯგუფში ბავშვები თანატოლებთან ერთად მუშაობენ და თითოეულს თავისი შექმნილი ნივთი მიაქვს სახლში!`
+          }
+        ]);
+      }
+      if (isContextualDuration) {
+        return filterByTarget([
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `<strong>${prog.emoji} „${prog.title}“-ს ხანგრძლივობაა:</strong> ${prog.duration}.`
+          }
+        ]);
+      }
+      if (isContextualLocation) {
+        return filterByTarget([
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `ეს პროგრამა ტარდება ჩვენს სახელოსნოში: <strong>${SITE_FACTS.contacts.address}</strong> (<a href="${SITE_FACTS.contacts.mapsUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue); text-decoration:underline;">Google Maps 🗺️</a>).`
+          }
+        ]);
+      }
+      if (isContextualMaterials) {
+        return filterByTarget([
+          {
+            type: "earth",
+            author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+            text: `<strong>„${prog.title}“-სთვის ბავშვს თან არაფერი მოაქვს!</strong> ყველა მასალა ადგილზე ხვდება და შედის ღირებულებაში.`
+          }
+        ]);
+      }
     }
   }
 
-  // 2. Score Knowledge Modules from FUSFUSA_SITE_KNOWLEDGE
+  // 6. მრავალთემიანი კითხვები (პროგრამა + ფასი / ასაკი / მასალები / ხანგრძლივობა ერთად)
+  const isAskingPrice = SYNONYMS.price.some(syn => normQuery.includes(syn));
+  const isAskingAge = normQuery.includes("ასაკ") || normQuery.includes("წლის") || normQuery.includes("წლიდან");
+  const isAskingMaterials = SYNONYMS.materials.some(syn => normQuery.includes(syn));
+  const isAskingDuration = SYNONYMS.duration.some(syn => normQuery.includes(syn));
+
+  let targetProg = null;
+  if (normQuery.includes("პინგვინ")) targetProg = SITE_FACTS.programs["workshop-penguin"];
+  else if (normQuery.includes("ბარათ") || normQuery.includes("საახალწლო")) targetProg = SITE_FACTS.programs["workshop-card"];
+  else if (normQuery.includes("ლამპიონ") || (normQuery.includes("თიხ") && normQuery.includes("სანათ"))) targetProg = SITE_FACTS.programs["workshop-clay-lamp"];
+  else if (normQuery.includes("ფუტკ")) targetProg = SITE_FACTS.programs["bees-project"];
+  else if (normQuery.includes("ყინულ") || normQuery.includes("არქტიკ")) targetProg = SITE_FACTS.programs["ice-world-project"];
+  else if (normQuery.includes("რობოტიკ") || normQuery.includes("კოდირებ")) targetProg = SITE_FACTS.programs["robotics-club"];
+
+  if (targetProg && isAskingMaterials) {
+    chatSessionContext.lastProgramId = targetProg.id;
+    chatSessionContext.lastTopic = targetProg.id;
+    return filterByTarget([
+      {
+        type: "earth",
+        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+        text: `<strong>${targetProg.emoji} „${targetProg.title}“-სთვის ბავშვს თან არაფრის მოტანა არ სჭირდება!</strong> ყველა საჭირო ბუნებრივი და ტექნიკური მასალა ადგილზე ხვდება და სრულად შედის ღირებულებაში (${targetProg.price} ლარი).`
+      },
+      {
+        type: "tech",
+        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+        text: `სახელოსნო უზრუნველყოფს ყველა ხელსაწყოსა და უსაფრთხო ელექტრონიკას (Micro:bit, სენსორები, LED). შექმნილი ნამუშევარი კი ბავშვს მიაქვს სახლში!<br><a href="contact.html?course=${targetProg.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ დაჯავშნა →</a>`
+      }
+    ]);
+  }
+
+  if (targetProg && (isAskingPrice || isAskingAge || isAskingDuration)) {
+    chatSessionContext.lastProgramId = targetProg.id;
+    chatSessionContext.lastTopic = targetProg.id;
+
+    let eText = `<strong>${targetProg.emoji} „${targetProg.title}“:</strong><br>`;
+    if (isAskingPrice) eText += `• <strong>საფასური:</strong> <strong>${targetProg.price} ლარი</strong>${targetProg.category === "club" ? " / თვეში" : ""}.<br>`;
+    if (isAskingAge) eText += `• <strong>ასაკი:</strong> ${targetProg.ageMin}–${targetProg.ageMax} წელი.<br>`;
+    if (isAskingDuration || (!isAskingPrice && !isAskingAge)) eText += `• <strong>ხანგრძლივობა:</strong> ${targetProg.duration}.`;
+
+    let tText = targetProg.isPaused
+      ? `(შენიშვნა: ამ ეტაპზე წრეზე მიღება დროებით შეჩერებულია; რობოტიკა სრულად ისწავლება 1-თვიან პროექტებში).<br><a href="${SITE_FACTS.registration.url}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ მიმდინარე პროექტების დაჯავშნა →</a>`
+      : `ყველა სამუშაო მასალა სრულად შედის ღირებულებაში.<br><a href="contact.html?course=${targetProg.id}" class="ai-prompt-btn" style="display:inline-block; margin-top:8px; text-decoration:none;">✨ დაჯავშნა →</a>`;
+
+    return filterByTarget([
+      {
+        type: "earth",
+        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+        text: eText
+      },
+      {
+        type: "tech",
+        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+        text: tText
+      }
+    ]);
+  }
+
+  // 7. დეზამბიგუაცია (თუ კითხვა ძალიან ზოგადია)
+  if (normQuery === "ვორქშოფი" || normQuery === "ვორქშოფები" || normQuery === "მასტერკლასი") {
+    return filterByTarget([
+      {
+        type: "earth",
+        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+        text: `სახელოსნოში გვაქვს <strong>3 ერთდღიანი ვორქშოფი (თითოეული 50 ₾ • 1.5–2 სთ)</strong>:<br>1. 🎄 მანათობელი საახალწლო ბარათი (6–14 წელი)<br>2. 🐧 მოფუსფუსე პინგვინი ყინულზე (7–10 წელი)<br>3. 🕯️ თიხის მანათობელი ეკო-ლამპიონი (6–12 წელი)`
+      },
+      {
+        type: "tech",
+        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+        text: `რომელი ვორქშოფი გაინტერესებთ უფრო დეტალურად?
+        <div class="ai-quick-prompts">
+          <button class="ai-prompt-btn" data-query="რა არის ვორქშოფი „მოფუსფუსე პინგვინი“?">🐧 პინგვინი ყინულზე</button>
+          <button class="ai-prompt-btn" data-query="მომიყევი საახალწლო ბარათზე">🎄 საახალწლო ბარათი</button>
+          <button class="ai-prompt-btn" data-query="მომიყევი თიხის მანათობელ ლამპიონზე">🕯️ თიხის ლამპიონი</button>
+        </div>`
+      }
+    ]);
+  }
+
+  if (normQuery === "პროექტი" || normQuery === "პროექტები" || normQuery === "ინტეგრირებული პროექტები") {
+    return filterByTarget([
+      {
+        type: "earth",
+        author: "🌿 ეკო (ფუსფუსა დედამიწა)",
+        text: `ჩვენი <strong>1-თვიანი ინტეგრირებული პროექტებია (4 კვირა, 8 შეხვედრა • 3 სთ • 200 ₾)</strong>:<br>1. ❄️ „ყინულოვანი სამყარო“ (8–14 წელი)<br>2. 🐝 „ფუსფუსა ფუტკრები“ (8–12 წელი)`
+      },
+      {
+        type: "tech",
+        author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
+        text: `რომელ პროექტზე ისურვებდით მეტის გაგებას?
+        <div class="ai-quick-prompts">
+          <button class="ai-prompt-btn" data-query="მომიყევი პროექტ „ყინულოვან სამყაროზე“">❄️ ყინულოვანი სამყარო</button>
+          <button class="ai-prompt-btn" data-query="მომიყევი პროექტ „ფუსფუსა ფუტკრებზე“">🐝 ფუსფუსა ფუტკრები</button>
+        </div>`
+      }
+    ]);
+  }
+
+  // 8. ცოდნის ბაზის შეფასება (Scoring with TF-IDF style weights, stems & Levenshtein)
+  const queryWords = normQuery.split(" ").filter(w => w.length > 1 && !STOP_WORDS.has(w));
+  const queryStems = [];
+  queryWords.forEach(w => {
+    getGeorgianStems(w).forEach(s => queryStems.push(s));
+  });
+
   let bestModule = null;
   let bestScore = 0;
 
   for (const module of FUSFUSA_SITE_KNOWLEDGE) {
     let score = 0;
 
-    // Check intents (phrase matching)
+    // A. ზუსტი ფრაზული შესაბამისობა (Intents)
     if (module.intents && Array.isArray(module.intents)) {
       for (const intent of module.intents) {
         const normIntent = normalizeGeorgian(intent);
         if (normQuery.includes(normIntent)) {
-          score += 45;
+          score += 50;
           break;
         } else if (normIntent.includes(normQuery) && normQuery.length > 5) {
-          score += 25;
+          score += 30;
           break;
         }
       }
     }
 
-    // Check keywords & stems
+    // B. საკვანძო სიტყვები, სტემები და Fuzzy Matching
     if (module.keywords && Array.isArray(module.keywords)) {
       for (const kw of module.keywords) {
         const normKw = normalizeGeorgian(kw);
         if (normKw.length < 2) continue;
 
-        // Substring inside normalized query (e.g. "ხელმძღვანელ" inside "ვის ხელმძღვანელობს")
+        // პირდაპირი ქვესტრიქონი
         if (normQuery.includes(normKw)) {
-          score += 15;
-        } else {
-          const kwStems = getGeorgianStems(normKw);
-          const hasMatch = kwStems.some(ks => 
-            queryStems.some(qs => qs === ks || (ks.length >= 4 && qs.startsWith(ks)) || (qs.length >= 4 && ks.startsWith(qs)))
-          );
-          if (hasMatch) {
-            score += 8;
-          }
+          score += 18;
+          continue;
+        }
+
+        // სტემების დამთხვევა
+        const kwStems = getGeorgianStems(normKw);
+        const hasStemMatch = kwStems.some(ks =>
+          queryStems.some(qs => qs === ks || (ks.length >= 4 && qs.startsWith(ks)) || (qs.length >= 4 && ks.startsWith(qs)))
+        );
+        if (hasStemMatch) {
+          score += 10;
+          continue;
+        }
+
+        // Fuzzy (Levenshtein) დამთხვევა სიტყვებს შორის
+        const hasFuzzy = queryWords.some(qw => isFuzzyMatch(qw, normKw));
+        if (hasFuzzy) {
+          score += 8;
         }
       }
     }
@@ -2017,13 +2923,13 @@ function generateFussusaAiAnswers(rawQuery) {
     }
   }
 
-  // If a high-confidence knowledge match is found (score >= 5)
-  if (bestScore >= 5 && bestModule) {
+  // თუ მოიძებნა მაღალი სანდოობის პასუხი (score >= 6)
+  if (bestScore >= 6 && bestModule) {
     const rawRes = bestModule.respond(normQuery);
     return filterByTarget(rawRes);
   }
 
-  // 3. Creative / Crafting inquiries (e.g. "როგორ გავაკეთო", "მინდა შევქმნა")
+  // 9. შემოქმედებითი / ხელსაქმის ზოგადი შეკითხვა (Crafting inquiries)
   if (normQuery.includes("როგორ") || normQuery.includes("მინდა") || normQuery.includes("შექმნა") || normQuery.includes("გაკეთება") || normQuery.includes("აწყობა")) {
     if (normQuery.includes("ჩიტ") || normQuery.includes("სათამაშო") || normQuery.includes("ხე") || normQuery.includes("თიხ") || normQuery.includes("ძერწ") || normQuery.includes("ყვავილ")) {
       return filterByTarget([
@@ -2038,31 +2944,45 @@ function generateFussusaAiAnswers(rawQuery) {
         {
           type: "tech",
           author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-          text: `ფანტასტიკურია! რობოტის ან ჭკვიანი მოწყობილობის შესაქმნელად ვიყენებთ micro:bit ან Arduino მიკროკომპიუტერს, ძრავებს და სენსორებს. Scratch-ისა და MakeCode-ის ბლოკებით კი მას ვაძლევთ „ტვინს“! მოდი სახელოსნოში და შენ თვითონ აამუშავებ!`
+          text: `ფანტასტიკურია! რობოტის ან ჭკვიანი მოწყობილობის შესაქმნელად ვიყენებთ Micro:bit ან Arduino მიკროკომპიუტერს, ძრავებს და სენსორებს. Scratch-ისა და MakeCode-ის ბლოკებით კი მას ვაძლევთ „ტვინს“! მოდი სახელოსნოში და შენ თვითონ აამუშავებ!`
         }
       ]);
     }
   }
 
-  // 4. Fallback for unknown / unhandled questions
+  // 10. ინტელექტუალური Fallback (უახლოესი თემების შეთავაზებით და საკონტაქტო რეკვიზიტებით)
   return filterByTarget([
     {
       type: "earth",
       author: "🌿 ეკო (ფუსფუსა დედამიწა)",
-      text: `სამწუხაროდ, ამ კონკრეტულ საკითხზე ინფორმაციას ჯერჯერობით არ ვფლობ.`
+      text: `სამწუხაროდ, ამ კონკრეტულ საკითხზე ინფორმაცია საიტზე არ მოიძებნა.`
     },
     {
       type: "tech",
       author: "💻 ბიტი (ფუსფუსა ტექნოლოგია)",
-      text: `გთხოვთ, პირადად დაუკავშირდეთ ჩვენს სახელოსნოს და მენტორები სიამოვნებით გაგცემენ ამომწურავ პასუხს:<br>• 📞 ტელეფონი: <strong><a href="tel:+995577101301" style="color:var(--color-blue); text-decoration:underline;">+995 577 101 301</a></strong><br>• ✉️ ელფოსტა: <strong><a href="mailto:info@fusfusa.ge" style="color:var(--color-blue); text-decoration:underline;">info@fusfusa.ge</a></strong><br>• 📍 მისამართი: <strong>რუსთავი, რუსთაველის ქუჩა</strong><br>ან შეავსეთ <a href="contact.html#booking" style="color:var(--color-blue); font-weight:bold; text-decoration:underline;">საკონტაქტო / სარეგისტრაციო ფორმა</a>! ✨`
+      text: `იქნებ რომელიმე ეს თემა გაინტერესებდეთ?
+      <div class="ai-quick-prompts">
+        <button class="ai-prompt-btn" data-query="რა ღირს სწავლა და ვორქშოფები?">💰 რა ღირს სწავლა?</button>
+        <button class="ai-prompt-btn" data-query="რა ასაკიდან მიიღება ბავშვი?">👧 ასაკობრივი ჯგუფები</button>
+        <button class="ai-prompt-btn" data-query="სად მდებარეობს სახელოსნო?">📍 მისამართი და რუკა</button>
+        <button class="ai-prompt-btn" data-query="ვინ არიან სახელოსნოს ხელმძღვანელები?">👩‍🏫 ხელმძღვანელები</button>
+      </div>
+      <p style="margin-top: 8px; font-size: 0.88rem;">ან პირადად დაუკავშირდით ჩვენს მენტორებს:<br>
+      • 📞 ტელეფონი: <strong><a href="tel:${SITE_FACTS.contacts.phone.replace(/\s+/g, '')}" style="color:var(--color-blue); text-decoration:underline;">${SITE_FACTS.contacts.phone}</a></strong><br>
+      • ✉️ ელფოსტა: <strong><a href="mailto:${SITE_FACTS.contacts.email}" style="color:var(--color-blue); text-decoration:underline;">${SITE_FACTS.contacts.email}</a></strong><br>
+      • 📍 მისამართი: <strong>${SITE_FACTS.contacts.address}</strong> (<a href="${SITE_FACTS.contacts.mapsUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--color-blue); text-decoration:underline;">Google Maps 🗺️</a>)<br>
+      ან შეავსეთ <a href="${SITE_FACTS.registration.url}" style="color:var(--color-blue); font-weight:bold; text-decoration:underline;">სარეგისტრაციო ფორმა</a>! ✨</p>`
     }
   ]);
 }
 
+// უსაფრთხოების ფუნქცია მომხმარებლის შეტყობინებების ეკრანირებისთვის
 function escapeHtml(str) {
+  if (typeof str !== "string") return "";
   return str.replace(/[&<>'"]/g, 
     tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
   );
 }
+
 
 

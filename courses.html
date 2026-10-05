@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>კურსები & პროექტები | სახელოსნო „ფუსფუსა“</title>
-  <meta name="description" content="სახელოსნო ფუსფუსას სასწავლო პროგრამები, ერთ თვიანი ინტეგრირებული პროექტები, ერთ დღიანი ვორქშოფები და რობოტიკის წრე.">
+  <meta name="description" content="სახელოსნო ფუსფუსას სასწავლო პროგრამები: ერთ თვიანი ინტეგრირებული პროექტები და ერთ დღიანი ვორქშოფები.">
   
   <link rel="stylesheet" href="styles.css?v=2.3">
   <link rel="icon" type="image/png" href="logo.png">
@@ -49,9 +49,9 @@
           <span class="current">კურსები & პროექტები</span>
         </nav>
         <span class="section-badge">სასწავლო ფორმატები</span>
-        <h1 class="section-title" style="margin-top: 8px;">პროექტები, ვორქშოფები & რობოტიკის წრე</h1>
+        <h1 class="section-title" style="margin-top: 8px;">პროექტები & ვორქშოფები</h1>
         <p class="section-desc">
-          შეარჩიეთ თქვენთვის სასურველი ფორმატი: ერთ თვიანი ინტეგრირებული პროექტები, ერთ დღიანი პრაქტიკული ვორქშოფები და მუდმივმოქმედი რობოტიკის წრე.
+          შეარჩიეთ თქვენთვის სასურველი ფორმატი: ერთ თვიანი ინტეგრირებული პროექტები (200 ლარი) და ერთ დღიანი პრაქტიკული ვორქშოფები (50 ლარი).
         </p>
       </div>
     </div>
@@ -64,43 +64,58 @@
           <button class="filter-btn active" data-filter="all">✨ ყველა პროგრამა</button>
           <button class="filter-btn" data-filter="month-project">📅 ერთ თვიანი პროექტები</button>
           <button class="filter-btn" data-filter="workshop">⚡ ერთ დღიანი ვორქშოფები</button>
-          <button class="filter-btn" data-filter="robotics-club">🤖 რობოტიკის წრე</button>
+          <!-- დროებით ამოღებულია: <button class="filter-btn" data-filter="robotics-club">🤖 რობოტიკის წრე</button> -->
         </div>
 
         <div class="courses-grid" id="courses-container">
           <!-- 1. მთავარი ერთ დღიანი ვორქშოფი: მანათობელი საახალწლო ბარათი -->
           <div class="course-card" data-format="workshop" data-category="earth tech" data-ages="age-6-8 age-9-12 age-13-15">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="საახალწლო ბარათი.jpg" alt="მანათობელი საახალწლო ბარათი" class="course-card-img" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">6–14 წელი</span>
                 <span class="badge-track" style="color: #E63946; font-weight: 800;">🎄 ერთ დღიანი ვორქშოფი</span>
               </div>
               <h3 class="course-title">მანათობელი საახალწლო ბარათი</h3>
               <p class="course-summary">
-                იდეალური 1.5–2-საათიანი პროექტი, რომელიც კოდირების გარეშე ხსნის ელექტრონიკის საწყისებს! ქაღალდის დიზაინი („ფუსფუსა დედამიწა“) + სპილენძის ლენტი, 3V ელემენტი & LED ნათურა („ფუსფუსა ტექნოლოგიები“). ბარათის დაჭერისას ნახატი ჯადოსნურად ნათდება!
+                იდეალური 1.5–2-საახალწლო პროექტი, რომელიც კოდირების გარეშე ხსნის ელექტრონიკის საწყისებს! ქაღალდის დიზაინი („ფუსფუსა დედამიწა“) + სპილენძის ლენტი, 3V ელემენტი & LED ნათურა („ფუსფუსა ტექნოლოგიები“). ბარათის დაჭერისას ნახატი ჯადოსნურად ნათდება!
               </p>
             </div>
-            <button class="open-details-btn" data-course="workshop-card" style="border-color: #E63946; color: #E63946;">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 50 ლარი</span>
+              <a href="contact.html?course=workshop-card" class="open-details-btn" style="border-color: #E63946; color: #E63946;">კურსის შეძენა →</a>
+            </div>
           </div>
 
           <!-- 2. მთავარი ერთ თვიანი ინტეგრირებული პროექტი: ფუსფუსა ფუტკრები -->
           <div class="course-card" data-format="month-project" data-category="earth tech" data-ages="age-6-8 age-9-12">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="ფუტკარი.jpg" alt="პროექტი: ფუსფუსა ფუტკრები" class="course-card-img" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">8–12 წელი</span>
                 <span class="badge-track" style="color: var(--color-sun-dark); font-weight: 800;">📅 ერთ თვიანი პროექტი</span>
               </div>
-              <h3 class="course-title">ინტეგრირებული პროექტი: „ფუსფუსა ფუტკრები“ 🐝</h3>
+              <h3 class="course-title">პროექტი: „ფუსფუსა ფუტკრები“ 🐝</h3>
               <p class="course-summary">
-                3-კვირიანი (6 შეხვედრა • 3-საათიანი) მოდელი: 30 წთ შემეცნება (ფუტკრები და ეკოსისტემები), 1.5 სთ სახელოსნო (ხის ნამდვილი სკა & თიხა) და 1 სთ რობოტიკა (Micro:bit ტემპერატურის კონტროლი და 2D ანიმაცია). საზეიმო ფინალი მშობლებთან ერთად!
+                4-კვირიანი (8 შეხვედრა • 3-საათიანი) მოდელი: 30 წთ შემეცნება (ფუტკრები და ეკოსისტემები), 1.5 სთ სახელოსნო (ხის ნამდვილი სკა & თიხა) და 1 სთ რობოტიკა (Micro:bit ტემპერატურის კონტროლი და 2D ანიმაცია). საზეიმო ფინალი მშობლებთან ერთად!
               </p>
             </div>
-            <button class="open-details-btn" data-course="project-bees">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 200 ლარი</span>
+              <a href="contact.html?course=bees-project" class="open-details-btn">კურსის შეძენა →</a>
+            </div>
           </div>
 
-          <!-- 3. რობოტიკის წრე (უწყვეტი ყოველკვირეული) -->
+          <!-- დროებით ამოღებულია: რობოტიკის წრე
           <div class="course-card" data-format="robotics-club" data-category="tech" data-ages="age-9-12 age-13-15">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="code time.png" alt="რობოტიკისა და კოდირების წრე" class="course-card-img" style="object-position: center 55%;" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">8–11 / 12–15 წელი</span>
                 <span class="badge-track" style="color: var(--color-blue); font-weight: 800;">🤖 რობოტიკისა & პროგრამირების წრე</span>
@@ -110,12 +125,19 @@
                 სრული გზა ვიზუალური პროგრამირებიდან (Code.org, CodeMonkey, Scratch, MakeCode) ტექსტურ კოდირებამდე (Python-ის საწყისები) და რეალურ მიკროკონტროლერებამდე (Micro:bit & Arduino). სენსორები, სერვო ძრავები & ეკო-ტექნოლოგიური სინთეზი.
               </p>
             </div>
-            <button class="open-details-btn" data-course="robotics-club">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 120 ლარი</span>
+              <a href="contact.html?course=robotics-club" class="open-details-btn">კურსის შეძენა →</a>
+            </div>
           </div>
+          -->
 
           <!-- 4. ერთ თვიანი პროექტი 2: ყინულოვანი სამყარო -->
           <div class="course-card" data-format="month-project" data-category="earth tech" data-ages="age-6-8 age-9-12 age-13-15">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="ყინულოვანი სამყარო.jpg" alt="ყინულოვანი სამყარო" class="course-card-img" style="object-position: center;" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">8–14 წელი</span>
                 <span class="badge-track" style="color: var(--color-green-dark); font-weight: 800;">📅 ერთ თვიანი პროექტი</span>
@@ -125,12 +147,18 @@
                 4-კვირიანი (8 შეხვედრა • 3 სთ) გუნდური პროექტი: არქტიკისა და ანტარქტიდის ეკოსისტემების კვლევა, პოლარული ბაზის, იგლუებისა და ყინულმჭრელი გემის მაკეტები, Micro:bit-ით ტემპერატურის მონიტორინგი, ფოტოების ციფრული გაცოცხლება და მოფუსფუსე ვიბრო-პინგვინების ინტეგრირება.
               </p>
             </div>
-            <button class="open-details-btn" data-course="project-ice-world">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 200 ლარი</span>
+              <a href="contact.html?course=ice-world-project" class="open-details-btn" style="border-color: var(--color-green-dark); color: var(--color-green-dark);">კურსის შეძენა →</a>
+            </div>
           </div>
 
           <!-- 5. ერთ დღიანი ვორქშოფი: მოფუსფუსე პინგვინი ყინულზე -->
           <div class="course-card" data-format="workshop" data-category="earth tech" data-ages="age-6-8 age-9-12">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="პინგვინები.jpg" alt="მოფუსფუსე პინგვინი ყინულზე" class="course-card-img" style="object-position: center 55%;" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">7–10 წელი</span>
                 <span class="badge-track" style="color: #E63946; font-weight: 800;">⚡ ერთ დღიანი ვორქშოფი</span>
@@ -140,12 +168,18 @@
                 კინეტიკური ინჟინერიისა და ბუნებისმეტყველების სინთეზი (1.5–2 სთ): პოლარული ეკოსისტემების შემეცნება, მუყაოსა და ფოლგის „ყინულის მოედნის“ შექმნა („ფუსფუსა დედამიწა“), 3V ელემენტისა და მინი-ვიბროძრავის ინტეგრირება („ფუსფუსა ტექნოლოგიები“) და პინგვინების მხიარული რბოლა!
               </p>
             </div>
-            <button class="open-details-btn" data-course="workshop-penguin">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 50 ლარი</span>
+              <a href="contact.html?course=workshop-penguin" class="open-details-btn" style="border-color: #E63946; color: #E63946;">კურსის შეძენა →</a>
+            </div>
           </div>
 
           <!-- 6. ერთ დღიანი ვორქშოფი 3: თიხის მანათობელი ეკო-ლამპიონი -->
           <div class="course-card" data-format="workshop" data-category="earth tech" data-ages="age-6-8 age-9-12">
             <div>
+              <div class="course-card-image-wrap">
+                <img src="სანათი.jpg" alt="თიხის მანათობელი ეკო-ლამპიონი" class="course-card-img" style="object-position: center 60%;" loading="lazy">
+              </div>
               <div class="course-meta">
                 <span class="badge-age">6–12 წელი</span>
                 <span class="badge-track" style="color: #E63946; font-weight: 800;">⚡ ერთ დღიანი ვორქშოფი</span>
@@ -155,7 +189,10 @@
                 2-საათიანი შემოქმედებითი ვორქშოფი: ბუნებრივი თიხის ძერწვა, ორნამენტული პერფორაცია სინათლისთვის და უსაფრთხო LED სანათის ჩამონტაჟება მყუდრო მაგიდის განათებისთვის.
               </p>
             </div>
-            <button class="open-details-btn" data-course="workshop-clay-lamp">სილაბუსის ნახვა →</button>
+            <div class="course-card-footer">
+              <span class="badge-price">💰 50 ლარი</span>
+              <a href="contact.html?course=workshop-clay-lamp" class="open-details-btn" style="border-color: #E63946; color: #E63946;">კურსის შეძენა →</a>
+            </div>
           </div>
         </div>
 
@@ -165,7 +202,7 @@
             <span class="synergy-badge">🐝 ინტეგრირებული პროექტი</span>
             <h4 style="font-size: 1.25rem; color: var(--text-dark); margin: 6px 0;">გსურთ ბუნებისა და ტექნოლოგიების ერთობლივი პროექტი?</h4>
             <p>
-              გაეცანით ჩვენს პირველ ინტეგრირებულ პროექტს — <strong>„ფუსფუსა ფუტკრები“</strong> (3 კვირა, მცენარეების დარგვა, სკების მაკეტი, micro:bit და გაცოცხლებული ანიმაცია).
+              გაეცანით ჩვენს პირველ პროექტს — <strong>„ფუსფუსა ფუტკრები“</strong> (4 კვირა, 8 შეხვედრა, მცენარეების დარგვა, სკების მაკეტი, micro:bit და გაცოცხლებული ანიმაცია).
             </p>
           </div>
           <a href="projects.html" class="btn-primary" style="white-space: nowrap;">პროექტის ნახვა →</a>
@@ -184,36 +221,6 @@
     </section>
   </main>
 
-  <!-- =========================================================================
-       MODALS
-       ========================================================================= -->
-  <!-- 1. Syllabus Detail Modal -->
-  <div class="modal-backdrop" id="syllabus-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-window">
-      <button class="modal-close-icon" id="modal-close-btn" aria-label="დახურვა">✕</button>
-      <h3 id="modal-title" style="font-size: 1.5rem; color: var(--text-dark); margin-bottom: 8px;">კურსის სათაური</h3>
-      
-      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
-        <span class="badge-age" id="modal-age">ასაკი</span>
-        <span class="badge-track" id="modal-pillar">მიმართულება</span>
-        <span style="font-size: 0.88rem; color: var(--text-muted);" id="modal-schedule">გრაფიკი</span>
-      </div>
-
-      <p id="modal-desc" style="color: var(--text-body); font-size: 0.98rem; line-height: 1.7; margin-bottom: 20px;"></p>
-
-      <h4 style="font-size: 1.05rem; color: var(--color-orange); margin-bottom: 10px;">📅 ძირითადი თემები & მოდულები:</h4>
-      <ul class="syllabus-modules-list" id="modal-modules"></ul>
-
-      <h4 style="font-size: 1.05rem; color: var(--color-sun-dark); margin-top: 20px;">🎯 შეძენილი უნარები:</h4>
-      <div class="skills-tags-row" id="modal-skills"></div>
-
-      <div style="margin-top: 28px; text-align: center;">
-        <a href="contact.html" class="btn-primary">
-          ✨ ამ კურსზე დარეგისტრირება
-        </a>
-      </div>
-    </div>
-  </div>
   <!-- =========================================================================
        FOOTER
        ========================================================================= -->
@@ -237,9 +244,10 @@
 
       <div class="footer-links-col">
         <h5>კონტაქტი</h5>
-        <p>📍 რუსთავი, რუსთაველის ქუჩა</p>
-        <p>📞 <a href="tel:+995577101301">+995 577 101 301</a></p>
+        <p>📍 <a href="https://maps.app.goo.gl/sRnCucsniBFkQdWZ7" target="_blank" rel="noopener noreferrer">რუსთავი, რუსთაველის ქუჩა</a></p>
+        <p>📞 <a href="tel:+995514018833">+995 514 01 88 33</a></p>
         <p>✉️ <a href="mailto:info@fusfusa.ge">info@fusfusa.ge</a></p>
+        <p>🌐 <a href="https://www.facebook.com/profile.php?id=61589642798492" target="_blank" rel="noopener noreferrer">Facebook გვერდი</a></p>
       </div>
     </div>
 
